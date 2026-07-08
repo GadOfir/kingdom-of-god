@@ -459,6 +459,7 @@
   <nav class="topnav">
     <a href="#">Home</a>
     <a href="#skills">Skills</a>
+    <a href="#plugins">Plug-ins</a>
     <a href="https://github.com/GadOfir/kingdom-of-god" target="_blank">GitHub</a>
     <button onclick="toggleTheme()"><span class="theme-icon">&#9789;</span> Theme</button>
   </nav>
@@ -482,13 +483,15 @@
       <div class="section-label" style="color: var(--neon-amber);">Architecture</div>
       <h2>Kingdom map</h2>
       <div class="diagram">
-        <svg class="diagram-svg" viewBox="0 0 760 520" xmlns="http://www.w3.org/2000/svg" style="max-width: 760px;">
+        <svg class="diagram-svg" viewBox="0 0 760 664" xmlns="http://www.w3.org/2000/svg" style="max-width: 760px;">
           <defs>
             <marker id="ahAmber" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto" markerUnits="userSpaceOnUse"><path d="M0,0 L10,5 L0,10 z" fill="var(--neon-amber)"/></marker>
             <marker id="ahPink" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto" markerUnits="userSpaceOnUse"><path d="M0,0 L10,5 L0,10 z" fill="var(--neon-pink)"/></marker>
             <marker id="ahBlue" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto" markerUnits="userSpaceOnUse"><path d="M0,0 L10,5 L0,10 z" fill="var(--neon-blue)"/></marker>
             <marker id="ahPurple" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto" markerUnits="userSpaceOnUse"><path d="M0,0 L10,5 L0,10 z" fill="var(--neon-purple)"/></marker>
             <marker id="ahGreen" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto" markerUnits="userSpaceOnUse"><path d="M0,0 L10,5 L0,10 z" fill="var(--neon-green)"/></marker>
+            <marker id="ahCyan" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto" markerUnits="userSpaceOnUse"><path d="M0,0 L10,5 L0,10 z" fill="var(--neon-cyan)"/></marker>
+            <marker id="ahDim" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto" markerUnits="userSpaceOnUse"><path d="M0,0 L10,5 L0,10 z" fill="var(--text-dim)"/></marker>
           </defs>
 
           <!-- ============ Logic layer frame ============ -->
@@ -578,6 +581,37 @@
           <path d="M380,440 V420 H500 V354" fill="none" stroke="var(--neon-green)" stroke-width="1.1" stroke-opacity="0.4" stroke-dasharray="4,4" marker-end="url(#ahGreen)"/>
           <path d="M600,440 V414 H536 V354" fill="none" stroke="var(--neon-green)" stroke-width="1.1" stroke-opacity="0.4" stroke-dasharray="4,4" marker-end="url(#ahGreen)"/>
           <text x="510" y="410" fill="var(--neon-green)" font-size="8" font-family="monospace">read (contract-bound)</text>
+
+          <!-- ============ TIER 5: Plug-in skills (registry) ============ -->
+          <!-- registry rail + worker stubs (workers pull skills, so King doesn't have to run them) -->
+          <path d="M160,500 V540" fill="none" stroke="var(--text-dim)" stroke-width="1" stroke-opacity="0.45" stroke-dasharray="3,3"/>
+          <path d="M380,500 V540" fill="none" stroke="var(--text-dim)" stroke-width="1" stroke-opacity="0.45" stroke-dasharray="3,3"/>
+          <path d="M600,500 V540" fill="none" stroke="var(--text-dim)" stroke-width="1" stroke-opacity="0.45" stroke-dasharray="3,3"/>
+          <line x1="76" y1="540" x2="684" y2="540" stroke="var(--text-dim)" stroke-width="1" stroke-opacity="0.4" stroke-dasharray="3,3"/>
+          <text x="76" y="530" fill="var(--text-dim)" font-size="9" font-weight="700" font-family="monospace" letter-spacing="1.2">PLUG-IN SKILLS · referenced by link (always latest) · workers run them, not the King</text>
+
+          <!-- rail -> plug-in box stubs -->
+          <path d="M200,540 V574" fill="none" stroke="var(--text-dim)" stroke-width="1" stroke-opacity="0.45" stroke-dasharray="3,3"/>
+          <path d="M535,540 V574" fill="none" stroke="var(--text-dim)" stroke-width="1" stroke-opacity="0.45" stroke-dasharray="3,3"/>
+
+          <!-- example external skill -->
+          <a href="https://github.com/mattpocock/skills/tree/main/skills/engineering/improve-codebase-architecture" target="_blank" class="node">
+            <rect x="150" y="574" width="240" height="72" rx="10" fill="var(--surface-solid)" stroke="var(--neon-cyan)" stroke-width="1.8"/>
+            <text x="270" y="600" text-anchor="middle" fill="var(--neon-cyan)" font-weight="700" font-size="12" font-family="sans-serif">improve-codebase-</text>
+            <text x="270" y="616" text-anchor="middle" fill="var(--neon-cyan)" font-weight="700" font-size="12" font-family="sans-serif">architecture</text>
+            <text x="270" y="634" text-anchor="middle" fill="var(--text-dim)" font-size="8" font-family="monospace">ext · mattpocock/skills</text>
+          </a>
+          <!-- "+" add-any-skill placeholder -->
+          <rect x="430" y="574" width="210" height="72" rx="10" fill="none" stroke="var(--text-dim)" stroke-width="1.6" stroke-dasharray="6,5"/>
+          <text x="535" y="606" text-anchor="middle" fill="var(--text-mid)" font-weight="800" font-size="22" font-family="sans-serif">+</text>
+          <text x="535" y="626" text-anchor="middle" fill="var(--text-dim)" font-size="8.5" font-family="monospace">add any skill · link an upper skill</text>
+
+          <!-- example wiring: improve-codebase-architecture -> Agent Retro -->
+          <path d="M270,574 V400 H340 V356" fill="none" stroke="var(--neon-cyan)" stroke-width="1.5" stroke-opacity="0.7" stroke-dasharray="5,4" marker-end="url(#ahCyan)"/>
+          <text x="120" y="428" fill="var(--neon-cyan)" font-size="8" font-family="monospace">reference during retro: is the arch good?</text>
+          <!-- "+" can wire to any upper skill -->
+          <path d="M535,574 V556" fill="none" stroke="var(--text-dim)" stroke-width="1.2" stroke-opacity="0.5" stroke-dasharray="4,3" marker-end="url(#ahDim)"/>
+          <text x="548" y="566" fill="var(--text-dim)" font-size="7.5" font-family="monospace">↑ wire to any upper skill</text>
         </svg>
       </div>
     </section>
@@ -761,6 +795,37 @@
         <a class="skill-link" href="https://gadofir.github.io/godsplan/" target="_blank">
           <h3>GodsPlan — Planning Engine</h3>
           <p>Define the surface. Route through CONTRACTX. Author a property-based plan. Execute in phases with checkboxes the Agent Trifecta can read. The planning substrate of the kingdom.</p>
+        </a>
+      </div>
+    </section>
+
+    <!-- Plug-in skills -->
+    <section id="plugins">
+      <div class="section-label" style="color: var(--neon-cyan);">Extend</div>
+      <h2>Plug-in skills — save the King the trouble</h2>
+      <p class="desc">The kingdom ships with its own operational skills, but you don't have to make the King run everything. Drop external skills into the registry below the Workers. Workers pull them in on demand — the King stays focused on routing and contracts.</p>
+
+      <div class="point">
+        <h3>Reference by link, not by copy</h3>
+        <p><span class="highlight">Point to a skill's repo, don't vendor it in.</span> When you reference a skill by link, the agent fetches the latest version every time — no stale copies, no manual updates. The skill's author ships an improvement, and your kingdom picks it up on the next run.</p>
+      </div>
+      <div class="point">
+        <h3>Drop in any skill, wire it to an upper skill</h3>
+        <p>The <span class="highlight">+</span> slot in the map is deliberate: any skill can plug in here, and you can connect it to one of the upper skills so it fires at the right moment in the lifecycle. A plug-in is only useful when it feeds the stage that needs it.</p>
+      </div>
+      <div class="point">
+        <h3>Example: architecture review feeds Agent Retro</h3>
+        <p>Take <a href="https://github.com/mattpocock/skills/tree/main/skills/engineering/improve-codebase-architecture" target="_blank" style="color: var(--neon-cyan); font-weight: 600;">improve-codebase-architecture</a> (from mattpocock/skills). Wire it to <span class="highlight">Agent Retro</span>. Now, while doing the retro, the agent references what a <em>good</em> architecture actually looks like and checks its own work against it — did the changes drift the structure? Did it miss a seam, a boundary, a layering violation? The retro stops being "what broke" and becomes "what broke <em>and</em> did we leave the architecture better than we found it."</p>
+      </div>
+
+      <div class="skill-links" style="margin-top: 2rem;">
+        <a class="skill-link" href="https://github.com/mattpocock/skills/tree/main/skills/engineering/improve-codebase-architecture" target="_blank">
+          <h3>improve-codebase-architecture</h3>
+          <p>External skill · mattpocock/skills. Referenced by link so the agent always runs the latest version. Wired to Agent Retro — the agent checks whether the architecture stayed clean during the retro.</p>
+        </a>
+        <a class="skill-link" href="#skills">
+          <h3>+ add any skill</h3>
+          <p>Any public skill repo can plug in here. Reference it by link, then connect it to an upper skill (triage, contracts, retro, planning) so it runs at the right stage — without adding load to the King.</p>
         </a>
       </div>
     </section>
