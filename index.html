@@ -555,9 +555,9 @@
     <section>
       <div class="section-label" style="color: var(--neon-amber);">Map</div>
       <h2>Kingdom architecture</h2>
-      <p class="desc">God at the top. King orchestrates. Workers span across. Three operational skills below. LOS spans the memory layer.</p>
+      <p class="desc">God at the top. King orchestrates. Workers span across. Three operational skills, LOS memory, GodsPlan as the planning substrate.</p>
       <div class="diagram">
-        <svg class="diagram-svg" viewBox="0 0 460 460" xmlns="http://www.w3.org/2000/svg">
+        <svg class="diagram-svg" viewBox="0 0 460 520" xmlns="http://www.w3.org/2000/svg">
           <!-- God at top -->
           <rect x="155" y="10" width="150" height="50" rx="10" fill="var(--surface-solid)" stroke="var(--neon-amber)" stroke-width="2"/>
           <text x="230" y="32" text-anchor="middle" fill="var(--neon-amber)" font-weight="900" font-size="15" font-family="sans-serif">GOD</text>
@@ -576,42 +576,44 @@
           <line x1="230" y1="145" x2="230" y2="205" stroke="var(--neon-purple)" stroke-width="1.5" stroke-opacity="0.4"/>
           <line x1="265" y1="145" x2="370" y2="205" stroke="var(--neon-purple)" stroke-width="1.5" stroke-opacity="0.4"/>
 
-          <!-- Worker 1 -->
+          <!-- Workers -->
           <rect x="10" y="205" width="160" height="40" rx="8" fill="var(--surface-solid)" stroke="var(--neon-green)" stroke-width="1.5"/>
           <text x="90" y="223" text-anchor="middle" fill="var(--neon-green)" font-weight="700" font-size="12" font-family="sans-serif">WORKER α</text>
-          <text x="90" y="238" text-anchor="middle" fill="var(--text-dim)" font-size="9" font-family="monospace">Claude Code · fresh context</text>
-
-          <!-- Worker 2 -->
+          <text x="90" y="238" text-anchor="middle" fill="var(--text-dim)" font-size="9" font-family="monospace">Claude Code</text>
           <rect x="175" y="205" width="110" height="40" rx="8" fill="var(--surface-solid)" stroke="var(--neon-green)" stroke-width="1.5"/>
           <text x="230" y="223" text-anchor="middle" fill="var(--neon-green)" font-weight="700" font-size="12" font-family="sans-serif">WORKER β</text>
-          <text x="230" y="238" text-anchor="middle" fill="var(--text-dim)" font-size="9" font-family="monospace">Codex · no bias</text>
-
-          <!-- Worker 3 -->
+          <text x="230" y="238" text-anchor="middle" fill="var(--text-dim)" font-size="9" font-family="monospace">Codex</text>
           <rect x="290" y="205" width="160" height="40" rx="8" fill="var(--surface-solid)" stroke="var(--neon-green)" stroke-width="1.5"/>
           <text x="370" y="223" text-anchor="middle" fill="var(--neon-green)" font-weight="700" font-size="12" font-family="sans-serif">WORKER γ</text>
-          <text x="370" y="238" text-anchor="middle" fill="var(--text-dim)" font-size="9" font-family="monospace">Cursor · contract-bound</text>
+          <text x="370" y="238" text-anchor="middle" fill="var(--text-dim)" font-size="9" font-family="monospace">Cursor</text>
 
-          <!-- Bottom bar: operational skills -->
-          <rect x="30" y="285" width="120" height="40" rx="8" fill="var(--surface-solid)" stroke="var(--neon-pink)" stroke-width="1.5"/>
-          <text x="90" y="303" text-anchor="middle" fill="var(--neon-pink)" font-weight="700" font-size="11" font-family="sans-serif">SHIT HIT</text>
-          <text x="90" y="317" text-anchor="middle" fill="var(--neon-pink)" font-weight="700" font-size="11" font-family="sans-serif">THE FAN</text>
+          <!-- Operational skills -->
+          <rect x="30" y="280" width="120" height="40" rx="8" fill="var(--surface-solid)" stroke="var(--neon-pink)" stroke-width="1.5"/>
+          <text x="90" y="298" text-anchor="middle" fill="var(--neon-pink)" font-weight="700" font-size="11" font-family="sans-serif">SHIT HIT</text>
+          <text x="90" y="312" text-anchor="middle" fill="var(--neon-pink)" font-weight="700" font-size="11" font-family="sans-serif">THE FAN</text>
+          <rect x="170" y="280" width="120" height="40" rx="8" fill="var(--surface-solid)" stroke="var(--neon-purple)" stroke-width="1.5"/>
+          <text x="230" y="305" text-anchor="middle" fill="var(--neon-purple)" font-weight="700" font-size="13" font-family="sans-serif">CONTRACTX</text>
+          <rect x="310" y="280" width="120" height="40" rx="8" fill="var(--surface-solid)" stroke="var(--neon-blue)" stroke-width="1.5"/>
+          <text x="370" y="298" text-anchor="middle" fill="var(--neon-blue)" font-weight="700" font-size="11" font-family="sans-serif">AGENT</text>
+          <text x="370" y="312" text-anchor="middle" fill="var(--neon-blue)" font-weight="700" font-size="11" font-family="sans-serif">RETRO</text>
 
-          <rect x="170" y="285" width="120" height="40" rx="8" fill="var(--surface-solid)" stroke="var(--neon-purple)" stroke-width="1.5"/>
-          <text x="230" y="310" text-anchor="middle" fill="var(--neon-purple)" font-weight="700" font-size="13" font-family="sans-serif">CONTRACTX</text>
+          <!-- Dashed lines: skills → LOS -->
+          <line x1="90" y1="320" x2="160" y2="370" stroke="var(--neon-green)" stroke-width="1.2" stroke-opacity="0.3" stroke-dasharray="4,4"/>
+          <line x1="230" y1="320" x2="230" y2="370" stroke="var(--neon-green)" stroke-width="1.2" stroke-opacity="0.3" stroke-dasharray="4,4"/>
+          <line x1="370" y1="320" x2="300" y2="370" stroke="var(--neon-green)" stroke-width="1.2" stroke-opacity="0.3" stroke-dasharray="4,4"/>
 
-          <rect x="310" y="285" width="120" height="40" rx="8" fill="var(--surface-solid)" stroke="var(--neon-blue)" stroke-width="1.5"/>
-          <text x="370" y="303" text-anchor="middle" fill="var(--neon-blue)" font-weight="700" font-size="11" font-family="sans-serif">AGENT</text>
-          <text x="370" y="317" text-anchor="middle" fill="var(--neon-blue)" font-weight="700" font-size="11" font-family="sans-serif">RETRO</text>
+          <!-- LOS — memory -->
+          <rect x="130" y="370" width="200" height="40" rx="8" fill="var(--surface-solid)" stroke="var(--neon-green)" stroke-width="1.5" stroke-dasharray="4,2"/>
+          <text x="230" y="388" text-anchor="middle" fill="var(--neon-green)" font-weight="700" font-size="14" font-family="sans-serif">LOS</text>
+          <text x="230" y="403" text-anchor="middle" fill="var(--text-dim)" font-size="9" font-family="monospace">optional · wiki memory</text>
 
-          <!-- Dashed lines from skills → LOS -->
-          <line x1="90" y1="325" x2="160" y2="385" stroke="var(--neon-green)" stroke-width="1.2" stroke-opacity="0.3" stroke-dasharray="4,4"/>
-          <line x1="230" y1="325" x2="230" y2="385" stroke="var(--neon-green)" stroke-width="1.2" stroke-opacity="0.3" stroke-dasharray="4,4"/>
-          <line x1="370" y1="325" x2="300" y2="385" stroke="var(--neon-green)" stroke-width="1.2" stroke-opacity="0.3" stroke-dasharray="4,4"/>
+          <!-- Dashed line: LOS → GodsPlan -->
+          <line x1="230" y1="410" x2="230" y2="445" stroke="var(--neon-amber)" stroke-width="1.2" stroke-opacity="0.3" stroke-dasharray="4,4"/>
 
-          <!-- LOS — memory layer -->
-          <rect x="130" y="385" width="200" height="44" rx="8" fill="var(--surface-solid)" stroke="var(--neon-green)" stroke-width="1.5" stroke-dasharray="4,2"/>
-          <text x="230" y="405" text-anchor="middle" fill="var(--neon-green)" font-weight="700" font-size="14" font-family="sans-serif">LOS</text>
-          <text x="230" y="422" text-anchor="middle" fill="var(--text-dim)" font-size="9" font-family="monospace">optional · wiki memory layer</text>
+          <!-- GodsPlan — planning substrate -->
+          <rect x="130" y="445" width="200" height="40" rx="8" fill="var(--surface-solid)" stroke="var(--neon-amber)" stroke-width="1.5" stroke-dasharray="4,2"/>
+          <text x="230" y="463" text-anchor="middle" fill="var(--neon-amber)" font-weight="700" font-size="14" font-family="sans-serif">GODSPLAN</text>
+          <text x="230" y="478" text-anchor="middle" fill="var(--text-dim)" font-size="9" font-family="monospace">planning substrate · surface + route</text>
         </svg>
       </div>
     </section>
@@ -696,8 +698,8 @@
     <!-- Skills -->
     <section id="skills">
       <div class="section-label" style="color: var(--neon-cyan);">Skills</div>
-      <h2>Three operational skills + memory layer</h2>
-      <p class="desc">Each operational skill handles a different stage. LOS is the optional memory layer — cross-session, cross-project, retention-policy-driven.</p>
+      <h2>Operational skills + memory + planning</h2>
+      <p class="desc">Three operational skills handle each stage. LOS provides long-term memory. GodsPlan is the planning substrate — define surfaces, route through contracts, execute in phases.</p>
       <div class="skill-links">
         <a class="skill-link" href="https://gadofir.github.io/shit-hit-the-fan/" target="_blank">
           <h3>Shit Hit The Fan</h3>
@@ -714,6 +716,10 @@
         <a class="skill-link" href="https://gadofir.github.io/LOS-starter/" target="_blank">
           <h3>LOS — Memory Layer</h3>
           <p>LLM wiki system. Long-term memory across sessions and projects. Retention policies control what persists. Ingest policies control what gets consumed. Optional — the kingdom works without it, remembers with it.</p>
+        </a>
+        <a class="skill-link" href="https://gadofir.github.io/godsplan/" target="_blank">
+          <h3>GodsPlan — Planning Engine</h3>
+          <p>Define the surface. Route through CONTRACTX. Author a property-based plan. Execute in phases with checkboxes the Agent Trifecta can read. The planning substrate of the kingdom.</p>
         </a>
       </div>
     </section>
