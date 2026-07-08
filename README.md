@@ -18,6 +18,12 @@ not code. God rules. King orchestrates. Workers execute with fresh context.
 | Shit Hit The Fan | Triage | https://gadofir.github.io/shit-hit-the-fan/ |
 | CONTRACTX | Contracts | https://gadofir.github.io/contractx-starter/ |
 | Agent Retro | Learning | https://gadofir.github.io/agent-retro/ |
+| LOS | Memory (optional) | https://gadofir.github.io/LOS-starter/ |
+
+## LOS — Memory Layer
+
+Optional LLM wiki. Retention policy governs what persists. Ingest policy
+governs what reads/writes. Cross-project via `.claude.los` file.
 
 ## Quick start
 

@@ -508,9 +508,9 @@
           <div class="card-try">King → prompt → Worker → diff → King</div>
         </div>
         <div class="card">
-          <div class="card-name">Complete Lifecycle</div>
-          <p class="card-what">Three skills. One kingdom. Shit Hit The Fan (triage), CONTRACTX (contracts), Agent Retro (learning). Each skill owns one stage. Together they form a complete agent OS.</p>
-          <div class="card-try">Triage → Contract → Learn → Repeat</div>
+          <div class="card-name">Operational Skills + Memory</div>
+          <p class="card-what">Three operational skills. One memory layer (optional). Shit Hit The Fan (triage), CONTRACTX (contracts), Agent Retro (learning). LOS provides long-term wiki memory with retention and ingest policies.</p>
+          <div class="card-try">Triage → Contract → Learn → Remember → Repeat</div>
         </div>
       </div>
     </section>
@@ -555,53 +555,63 @@
     <section>
       <div class="section-label" style="color: var(--neon-amber);">Map</div>
       <h2>Kingdom architecture</h2>
-      <p class="desc">God at the top. King orchestrates below. Workers span across. Three skills form the foundation.</p>
+      <p class="desc">God at the top. King orchestrates. Workers span across. Three operational skills below. LOS spans the memory layer.</p>
       <div class="diagram">
-        <svg class="diagram-svg" viewBox="0 0 460 380" xmlns="http://www.w3.org/2000/svg">
+        <svg class="diagram-svg" viewBox="0 0 460 460" xmlns="http://www.w3.org/2000/svg">
           <!-- God at top -->
           <rect x="155" y="10" width="150" height="50" rx="10" fill="var(--surface-solid)" stroke="var(--neon-amber)" stroke-width="2"/>
           <text x="230" y="32" text-anchor="middle" fill="var(--neon-amber)" font-weight="900" font-size="15" font-family="sans-serif">GOD</text>
           <text x="230" y="50" text-anchor="middle" fill="var(--text-dim)" font-size="10" font-family="monospace">supreme leader</text>
 
           <!-- Line God → King -->
-          <line x1="230" y1="60" x2="230" y2="105" stroke="var(--neon-amber)" stroke-width="2" stroke-opacity="0.6"/>
+          <line x1="230" y1="60" x2="230" y2="100" stroke="var(--neon-amber)" stroke-width="2" stroke-opacity="0.6"/>
 
           <!-- King -->
-          <rect x="155" y="105" width="150" height="50" rx="10" fill="var(--surface-solid)" stroke="var(--neon-purple)" stroke-width="2"/>
-          <text x="230" y="127" text-anchor="middle" fill="var(--neon-purple)" font-weight="900" font-size="15" font-family="sans-serif">KING</text>
-          <text x="230" y="145" text-anchor="middle" fill="var(--text-dim)" font-size="10" font-family="monospace">orchestrator + contracts</text>
+          <rect x="155" y="100" width="150" height="45" rx="10" fill="var(--surface-solid)" stroke="var(--neon-purple)" stroke-width="2"/>
+          <text x="230" y="120" text-anchor="middle" fill="var(--neon-purple)" font-weight="900" font-size="15" font-family="sans-serif">KING</text>
+          <text x="230" y="137" text-anchor="middle" fill="var(--text-dim)" font-size="10" font-family="monospace">orchestrator + contracts</text>
 
           <!-- Lines King → Workers -->
-          <line x1="195" y1="155" x2="90" y2="220" stroke="var(--neon-purple)" stroke-width="1.5" stroke-opacity="0.4"/>
-          <line x1="230" y1="155" x2="230" y2="220" stroke="var(--neon-purple)" stroke-width="1.5" stroke-opacity="0.4"/>
-          <line x1="265" y1="155" x2="370" y2="220" stroke="var(--neon-purple)" stroke-width="1.5" stroke-opacity="0.4"/>
+          <line x1="195" y1="145" x2="90" y2="205" stroke="var(--neon-purple)" stroke-width="1.5" stroke-opacity="0.4"/>
+          <line x1="230" y1="145" x2="230" y2="205" stroke="var(--neon-purple)" stroke-width="1.5" stroke-opacity="0.4"/>
+          <line x1="265" y1="145" x2="370" y2="205" stroke="var(--neon-purple)" stroke-width="1.5" stroke-opacity="0.4"/>
 
           <!-- Worker 1 -->
-          <rect x="10" y="220" width="160" height="45" rx="8" fill="var(--surface-solid)" stroke="var(--neon-green)" stroke-width="1.5"/>
-          <text x="90" y="240" text-anchor="middle" fill="var(--neon-green)" font-weight="700" font-size="12" font-family="sans-serif">WORKER α</text>
-          <text x="90" y="258" text-anchor="middle" fill="var(--text-dim)" font-size="9" font-family="monospace">Claude Code · fresh context</text>
+          <rect x="10" y="205" width="160" height="40" rx="8" fill="var(--surface-solid)" stroke="var(--neon-green)" stroke-width="1.5"/>
+          <text x="90" y="223" text-anchor="middle" fill="var(--neon-green)" font-weight="700" font-size="12" font-family="sans-serif">WORKER α</text>
+          <text x="90" y="238" text-anchor="middle" fill="var(--text-dim)" font-size="9" font-family="monospace">Claude Code · fresh context</text>
 
           <!-- Worker 2 -->
-          <rect x="175" y="220" width="110" height="45" rx="8" fill="var(--surface-solid)" stroke="var(--neon-green)" stroke-width="1.5"/>
-          <text x="230" y="240" text-anchor="middle" fill="var(--neon-green)" font-weight="700" font-size="12" font-family="sans-serif">WORKER β</text>
-          <text x="230" y="258" text-anchor="middle" fill="var(--text-dim)" font-size="9" font-family="monospace">Codex · no bias</text>
+          <rect x="175" y="205" width="110" height="40" rx="8" fill="var(--surface-solid)" stroke="var(--neon-green)" stroke-width="1.5"/>
+          <text x="230" y="223" text-anchor="middle" fill="var(--neon-green)" font-weight="700" font-size="12" font-family="sans-serif">WORKER β</text>
+          <text x="230" y="238" text-anchor="middle" fill="var(--text-dim)" font-size="9" font-family="monospace">Codex · no bias</text>
 
           <!-- Worker 3 -->
-          <rect x="290" y="220" width="160" height="45" rx="8" fill="var(--surface-solid)" stroke="var(--neon-green)" stroke-width="1.5"/>
-          <text x="370" y="240" text-anchor="middle" fill="var(--neon-green)" font-weight="700" font-size="12" font-family="sans-serif">WORKER γ</text>
-          <text x="370" y="258" text-anchor="middle" fill="var(--text-dim)" font-size="9" font-family="monospace">Cursor · contract-bound</text>
+          <rect x="290" y="205" width="160" height="40" rx="8" fill="var(--surface-solid)" stroke="var(--neon-green)" stroke-width="1.5"/>
+          <text x="370" y="223" text-anchor="middle" fill="var(--neon-green)" font-weight="700" font-size="12" font-family="sans-serif">WORKER γ</text>
+          <text x="370" y="238" text-anchor="middle" fill="var(--text-dim)" font-size="9" font-family="monospace">Cursor · contract-bound</text>
 
-          <!-- Bottom bar: skills -->
-          <rect x="30" y="310" width="120" height="50" rx="8" fill="var(--surface-solid)" stroke="var(--neon-pink)" stroke-width="1.5"/>
-          <text x="90" y="332" text-anchor="middle" fill="var(--neon-pink)" font-weight="700" font-size="11" font-family="sans-serif">SHIT HIT</text>
-          <text x="90" y="348" text-anchor="middle" fill="var(--neon-pink)" font-weight="700" font-size="11" font-family="sans-serif">THE FAN</text>
+          <!-- Bottom bar: operational skills -->
+          <rect x="30" y="285" width="120" height="40" rx="8" fill="var(--surface-solid)" stroke="var(--neon-pink)" stroke-width="1.5"/>
+          <text x="90" y="303" text-anchor="middle" fill="var(--neon-pink)" font-weight="700" font-size="11" font-family="sans-serif">SHIT HIT</text>
+          <text x="90" y="317" text-anchor="middle" fill="var(--neon-pink)" font-weight="700" font-size="11" font-family="sans-serif">THE FAN</text>
 
-          <rect x="170" y="310" width="120" height="50" rx="8" fill="var(--surface-solid)" stroke="var(--neon-purple)" stroke-width="1.5"/>
-          <text x="230" y="340" text-anchor="middle" fill="var(--neon-purple)" font-weight="700" font-size="13" font-family="sans-serif">CONTRACTX</text>
+          <rect x="170" y="285" width="120" height="40" rx="8" fill="var(--surface-solid)" stroke="var(--neon-purple)" stroke-width="1.5"/>
+          <text x="230" y="310" text-anchor="middle" fill="var(--neon-purple)" font-weight="700" font-size="13" font-family="sans-serif">CONTRACTX</text>
 
-          <rect x="310" y="310" width="120" height="50" rx="8" fill="var(--surface-solid)" stroke="var(--neon-blue)" stroke-width="1.5"/>
-          <text x="370" y="332" text-anchor="middle" fill="var(--neon-blue)" font-weight="700" font-size="11" font-family="sans-serif">AGENT</text>
-          <text x="370" y="348" text-anchor="middle" fill="var(--neon-blue)" font-weight="700" font-size="11" font-family="sans-serif">RETRO</text>
+          <rect x="310" y="285" width="120" height="40" rx="8" fill="var(--surface-solid)" stroke="var(--neon-blue)" stroke-width="1.5"/>
+          <text x="370" y="303" text-anchor="middle" fill="var(--neon-blue)" font-weight="700" font-size="11" font-family="sans-serif">AGENT</text>
+          <text x="370" y="317" text-anchor="middle" fill="var(--neon-blue)" font-weight="700" font-size="11" font-family="sans-serif">RETRO</text>
+
+          <!-- Dashed lines from skills → LOS -->
+          <line x1="90" y1="325" x2="160" y2="385" stroke="var(--neon-green)" stroke-width="1.2" stroke-opacity="0.3" stroke-dasharray="4,4"/>
+          <line x1="230" y1="325" x2="230" y2="385" stroke="var(--neon-green)" stroke-width="1.2" stroke-opacity="0.3" stroke-dasharray="4,4"/>
+          <line x1="370" y1="325" x2="300" y2="385" stroke="var(--neon-green)" stroke-width="1.2" stroke-opacity="0.3" stroke-dasharray="4,4"/>
+
+          <!-- LOS — memory layer -->
+          <rect x="130" y="385" width="200" height="44" rx="8" fill="var(--surface-solid)" stroke="var(--neon-green)" stroke-width="1.5" stroke-dasharray="4,2"/>
+          <text x="230" y="405" text-anchor="middle" fill="var(--neon-green)" font-weight="700" font-size="14" font-family="sans-serif">LOS</text>
+          <text x="230" y="422" text-anchor="middle" fill="var(--text-dim)" font-size="9" font-family="monospace">optional · wiki memory layer</text>
         </svg>
       </div>
     </section>
@@ -659,11 +669,35 @@
       </div>
     </section>
 
+    <!-- LOS Memory Layer -->
+    <section>
+      <div class="section-label" style="color: var(--neon-green);">Memory</div>
+      <h2>LOS — Long-term memory layer</h2>
+      <p class="desc">Optional but powerful. While the three operational skills handle each session in isolation, LOS carries knowledge across sessions, projects, and time. Think of it as the kingdom's wiki — available to every persona, governed by policies.</p>
+      <div class="concepts">
+        <div class="concept">
+          <h3>Retention policy</h3>
+          <p>What stays and what expires. Knowledge files persist forever. Daily logs accumulate but can be pruned. Tasks archive when done. The retention policy means LOS doesn't become a junkyard — it stays a clean, searchable memory.</p>
+          <p><span class="highlight">Policy:</span> identity.md (permanent) → knowledge/ (permanent) → logs/ (retention window) → .tasks/ (archive on completion).</p>
+        </div>
+        <div class="concept">
+          <h3>Ingest policy</h3>
+          <p>What gets consumed and how. King reads LOS for context before routing. Workers don't — they get fresh windows. Agent Retro writes session learnings back to LOS. Shit Hit The Fan reads LOS for incident history. CONTRACTX writes gap resolutions to LOS.</p>
+          <p><span class="highlight">Policy:</span> King reads, retro workers write, operational workers don't — they stay clean.</p>
+        </div>
+        <div class="concept">
+          <h3>Cross-project memory</h3>
+          <p>Drop a <code>.claude.los</code> file in any project root and it links to your LOS. King reads your context — who you are, what you know, what you decided — across every project. No repeated explanations. No "what did we decide last week?"</p>
+          <p><span class="highlight">Policy:</span> one LOS repo, many projects linked. Memory follows you everywhere.</p>
+        </div>
+      </div>
+    </section>
+
     <!-- Skills -->
     <section id="skills">
       <div class="section-label" style="color: var(--neon-cyan);">Skills</div>
-      <h2>Three skills. One kingdom.</h2>
-      <p class="desc">Each skill handles a different stage of the agent lifecycle. Together they form a complete operating system.</p>
+      <h2>Three operational skills + memory layer</h2>
+      <p class="desc">Each operational skill handles a different stage. LOS is the optional memory layer — cross-session, cross-project, retention-policy-driven.</p>
       <div class="skill-links">
         <a class="skill-link" href="https://gadofir.github.io/shit-hit-the-fan/" target="_blank">
           <h3>Shit Hit The Fan</h3>
@@ -676,6 +710,10 @@
         <a class="skill-link" href="https://gadofir.github.io/agent-retro/" target="_blank">
           <h3>Agent Retro</h3>
           <p>End-of-session learning. Agent self-reports what broke. Triage by model, harness, and task step. Patterns emerge across sessions. The lifecycle improves with every run.</p>
+        </a>
+        <a class="skill-link" href="https://gadofir.github.io/LOS-starter/" target="_blank">
+          <h3>LOS — Memory Layer</h3>
+          <p>LLM wiki system. Long-term memory across sessions and projects. Retention policies control what persists. Ingest policies control what gets consumed. Optional — the kingdom works without it, remembers with it.</p>
         </a>
       </div>
     </section>

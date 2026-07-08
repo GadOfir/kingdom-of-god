@@ -4,13 +4,14 @@ description: >
   Skill router built on Adversarial Alignment. Persona matrix: God (supreme leader)
   sets direction, King (orchestrator) routes work + reads CONTRACTX, Workers execute
   with fresh context windows. Routes between Shit Hit The Fan, CONTRACTX, Agent Retro.
+  LOS provides optional long-term memory with retention and ingest policies.
 argument-hint: "[route | status]"
 ---
 
 # Kingdom of God — Skill Router
 
 Adversarial Alignment in practice. God sets direction. King orchestrates.
-Workers execute with clean context. Three skills, one kingdom.
+Workers execute with clean context. Three operational skills + LOS memory layer.
 
 ## Persona Matrix
 
@@ -34,11 +35,23 @@ Workers execute without code-pattern bias.
 | Triage | Shit Hit The Fan | Something broke. Route to the right fix. |
 | Contracts | CONTRACTX | Rules need enforcing. Walk before edit. |
 | Learning | Agent Retro | Session ended. Triage by model×harness×step. |
+| Memory | LOS (optional) | Long-term wiki. Cross-session, cross-project. |
+
+## LOS — Memory Layer
+
+Optional LLM wiki system. Provides long-term memory with:
+
+- **Retention policy:** What stays, what expires. identity.md (permanent),
+  knowledge/ (permanent), logs/ (retention window), tasks/ (archive on completion).
+- **Ingest policy:** What reads and writes. King reads LOS for context.
+  Operational Workers don't — fresh windows. Agent Retro writes learnings back.
+  SHTF reads incident history. CONTRACTX writes gap resolutions.
+- **Cross-project:** `.claude.los` file links any project to your LOS repo.
 
 ## Handoff Protocol
 
 1. God sets direction — what's the real use case?
-2. King reads CONTRACTX — knows rules + boundaries
+2. King reads CONTRACTX + LOS — knows rules, boundaries, history
 3. King routes to Workers — paste-ready prompts (or handles directly if smart enough)
 4. Workers execute — clean context, contract-bound, return diff
 5. King reviews → asks God "deploy?" → pushes → verifies
