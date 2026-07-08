@@ -476,6 +476,87 @@
       </div>
     </header>
 
+    <!-- Diagram -->
+    <section style="padding-top: 1rem;">
+      <div class="section-label" style="color: var(--neon-amber);">Architecture</div>
+      <h2>Kingdom map</h2>
+      <div class="diagram">
+        <svg class="diagram-svg" viewBox="0 0 460 430" xmlns="http://www.w3.org/2000/svg">
+          <!-- God -->
+          <a href="https://gadofir.github.io/kingdom-of-god/" target="_blank" class="node">
+            <rect x="155" y="5" width="150" height="44" rx="10" fill="var(--surface-solid)" stroke="var(--neon-amber)" stroke-width="2.5"/>
+            <text x="230" y="26" text-anchor="middle" fill="var(--neon-amber)" font-weight="900" font-size="15" font-family="sans-serif">GOD</text>
+            <text x="230" y="42" text-anchor="middle" fill="var(--text-dim)" font-size="9" font-family="monospace">supreme leader</text>
+          </a>
+          <line x1="230" y1="49" x2="230" y2="72" stroke="var(--neon-amber)" stroke-width="2" stroke-opacity="0.5"/>
+
+          <!-- King -->
+          <a href="https://gadofir.github.io/kingdom-of-god/" target="_blank" class="node">
+            <rect x="155" y="72" width="150" height="40" rx="10" fill="var(--surface-solid)" stroke="var(--neon-purple)" stroke-width="2"/>
+            <text x="230" y="90" text-anchor="middle" fill="var(--neon-purple)" font-weight="900" font-size="14" font-family="sans-serif">KING</text>
+            <text x="230" y="105" text-anchor="middle" fill="var(--text-dim)" font-size="8" font-family="monospace">orchestrator + CONTRACTX</text>
+          </a>
+
+          <!-- Lines from King to Workers -->
+          <line x1="195" y1="112" x2="90" y2="150" stroke="var(--neon-purple)" stroke-width="1.5" stroke-opacity="0.35"/>
+          <line x1="230" y1="112" x2="230" y2="150" stroke="var(--neon-purple)" stroke-width="1.5" stroke-opacity="0.35"/>
+          <line x1="265" y1="112" x2="370" y2="150" stroke="var(--neon-purple)" stroke-width="1.5" stroke-opacity="0.35"/>
+
+          <!-- Workers row -->
+          <rect x="10" y="150" width="160" height="32" rx="6" fill="var(--surface-solid)" stroke="var(--neon-green)" stroke-width="1.2"/>
+          <text x="90" y="164" text-anchor="middle" fill="var(--neon-green)" font-weight="700" font-size="11" font-family="sans-serif">WORKER α</text>
+          <text x="90" y="177" text-anchor="middle" fill="var(--text-dim)" font-size="8" font-family="monospace">Claude Code</text>
+          <rect x="175" y="150" width="110" height="32" rx="6" fill="var(--surface-solid)" stroke="var(--neon-green)" stroke-width="1.2"/>
+          <text x="230" y="164" text-anchor="middle" fill="var(--neon-green)" font-weight="700" font-size="11" font-family="sans-serif">WORKER β</text>
+          <text x="230" y="177" text-anchor="middle" fill="var(--text-dim)" font-size="8" font-family="monospace">Codex</text>
+          <rect x="290" y="150" width="160" height="32" rx="6" fill="var(--surface-solid)" stroke="var(--neon-green)" stroke-width="1.2"/>
+          <text x="370" y="164" text-anchor="middle" fill="var(--neon-green)" font-weight="700" font-size="11" font-family="sans-serif">WORKER γ</text>
+          <text x="370" y="177" text-anchor="middle" fill="var(--text-dim)" font-size="8" font-family="monospace">Cursor</text>
+
+          <!-- Workers → Skills -->
+          <line x1="90" y1="182" x2="90" y2="210" stroke="var(--neon-green)" stroke-width="1" stroke-opacity="0.25"/>
+          <line x1="230" y1="182" x2="230" y2="210" stroke="var(--neon-green)" stroke-width="1" stroke-opacity="0.25"/>
+          <line x1="370" y1="182" x2="370" y2="210" stroke="var(--neon-green)" stroke-width="1" stroke-opacity="0.25"/>
+
+          <!-- Skills row -->
+          <a href="https://gadofir.github.io/shit-hit-the-fan/" target="_blank" class="node">
+            <rect x="30" y="210" width="120" height="40" rx="8" fill="var(--surface-solid)" stroke="var(--neon-pink)" stroke-width="1.5"/>
+            <text x="90" y="228" text-anchor="middle" fill="var(--neon-pink)" font-weight="700" font-size="10" font-family="sans-serif">SHIT HIT</text>
+            <text x="90" y="242" text-anchor="middle" fill="var(--neon-pink)" font-weight="700" font-size="10" font-family="sans-serif">THE FAN</text>
+          </a>
+          <a href="https://gadofir.github.io/contractx-starter/" target="_blank" class="node">
+            <rect x="170" y="210" width="120" height="40" rx="8" fill="var(--surface-solid)" stroke="var(--neon-purple)" stroke-width="2"/>
+            <text x="230" y="235" text-anchor="middle" fill="var(--neon-purple)" font-weight="700" font-size="13" font-family="sans-serif">CONTRACTX</text>
+          </a>
+          <a href="https://gadofir.github.io/agent-retro/" target="_blank" class="node">
+            <rect x="310" y="210" width="120" height="40" rx="8" fill="var(--surface-solid)" stroke="var(--neon-blue)" stroke-width="1.5"/>
+            <text x="370" y="228" text-anchor="middle" fill="var(--neon-blue)" font-weight="700" font-size="10" font-family="sans-serif">AGENT</text>
+            <text x="370" y="242" text-anchor="middle" fill="var(--neon-blue)" font-weight="700" font-size="10" font-family="sans-serif">RETRO</text>
+          </a>
+
+          <!-- Skills → LOS -->
+          <line x1="90" y1="250" x2="150" y2="310" stroke="var(--neon-green)" stroke-width="1" stroke-opacity="0.2" stroke-dasharray="5,5"/>
+          <line x1="230" y1="250" x2="230" y2="310" stroke="var(--neon-green)" stroke-width="1" stroke-opacity="0.2" stroke-dasharray="5,5"/>
+          <line x1="370" y1="250" x2="310" y2="310" stroke="var(--neon-green)" stroke-width="1" stroke-opacity="0.2" stroke-dasharray="5,5"/>
+
+          <!-- LOS — wide -->
+          <a href="https://gadofir.github.io/LOS-starter/" target="_blank" class="node">
+            <rect x="60" y="310" width="340" height="36" rx="8" fill="var(--surface-solid)" stroke="var(--neon-green)" stroke-width="1.2" stroke-dasharray="5,3"/>
+            <text x="230" y="332" text-anchor="middle" fill="var(--neon-green)" font-weight="700" font-size="13" font-family="sans-serif">LOS — wiki memory (optional)</text>
+          </a>
+
+          <!-- CONTRACTX → GodsPlan (only vertical drop) -->
+          <line x1="230" y1="250" x2="230" y2="390" stroke="var(--neon-amber)" stroke-width="1.5" stroke-opacity="0.25" stroke-dasharray="6,4"/>
+
+          <!-- GodsPlan -->
+          <a href="https://gadofir.github.io/godsplan/" target="_blank" class="node">
+            <rect x="130" y="390" width="200" height="32" rx="8" fill="var(--surface-solid)" stroke="var(--neon-amber)" stroke-width="1.2" stroke-dasharray="5,3"/>
+            <text x="230" y="410" text-anchor="middle" fill="var(--neon-amber)" font-weight="700" font-size="12" font-family="sans-serif">GODSPLAN — planning engine</text>
+          </a>
+        </svg>
+      </div>
+    </section>
+
     <!-- Features -->
     <section>
       <div class="section-label" style="color: var(--neon-purple);">Features</div>
@@ -551,94 +632,7 @@
       </div>
     </section>
 
-    <!-- The Diagram -->
-    <section>
-      <div class="section-label" style="color: var(--neon-amber);">Map</div>
-      <h2>Kingdom architecture</h2>
-      <p class="desc">God at the top. King orchestrates. Workers span across. Three operational skills, LOS memory, GodsPlan as the planning substrate.</p>
-      <div class="diagram">
-        <svg class="diagram-svg" viewBox="0 0 460 500" xmlns="http://www.w3.org/2000/svg">
-          <!-- God -->
-          <a href="https://gadofir.github.io/kingdom-of-god/" target="_blank" class="node">
-            <rect x="155" y="8" width="150" height="46" rx="10" fill="var(--surface-solid)" stroke="var(--neon-amber)" stroke-width="2"/>
-            <text x="230" y="29" text-anchor="middle" fill="var(--neon-amber)" font-weight="900" font-size="14" font-family="sans-serif">GOD</text>
-            <text x="230" y="46" text-anchor="middle" fill="var(--text-dim)" font-size="9" font-family="monospace">supreme leader</text>
-          </a>
 
-          <!-- God → King -->
-          <line x1="230" y1="54" x2="230" y2="88" stroke="var(--neon-amber)" stroke-width="2" stroke-opacity="0.6"/>
-
-          <!-- King -->
-          <a href="https://gadofir.github.io/kingdom-of-god/" target="_blank" class="node">
-            <rect x="155" y="88" width="150" height="44" rx="10" fill="var(--surface-solid)" stroke="var(--neon-purple)" stroke-width="2"/>
-            <text x="230" y="108" text-anchor="middle" fill="var(--neon-purple)" font-weight="900" font-size="14" font-family="sans-serif">KING</text>
-            <text x="230" y="124" text-anchor="middle" fill="var(--text-dim)" font-size="9" font-family="monospace">orchestrator + CONTRACTX</text>
-          </a>
-
-          <!-- King → Workers -->
-          <line x1="195" y1="132" x2="90" y2="182" stroke="var(--neon-purple)" stroke-width="1.5" stroke-opacity="0.4"/>
-          <line x1="230" y1="132" x2="230" y2="182" stroke="var(--neon-purple)" stroke-width="1.5" stroke-opacity="0.4"/>
-          <line x1="265" y1="132" x2="370" y2="182" stroke="var(--neon-purple)" stroke-width="1.5" stroke-opacity="0.4"/>
-
-          <!-- Workers -->
-          <rect x="10" y="182" width="160" height="36" rx="8" fill="var(--surface-solid)" stroke="var(--neon-green)" stroke-width="1.5"/>
-          <text x="90" y="199" text-anchor="middle" fill="var(--neon-green)" font-weight="700" font-size="11" font-family="sans-serif">WORKER α</text>
-          <text x="90" y="213" text-anchor="middle" fill="var(--text-dim)" font-size="8" font-family="monospace">Claude Code</text>
-          <rect x="175" y="182" width="110" height="36" rx="8" fill="var(--surface-solid)" stroke="var(--neon-green)" stroke-width="1.5"/>
-          <text x="230" y="199" text-anchor="middle" fill="var(--neon-green)" font-weight="700" font-size="11" font-family="sans-serif">WORKER β</text>
-          <text x="230" y="213" text-anchor="middle" fill="var(--text-dim)" font-size="8" font-family="monospace">Codex</text>
-          <rect x="290" y="182" width="160" height="36" rx="8" fill="var(--surface-solid)" stroke="var(--neon-green)" stroke-width="1.5"/>
-          <text x="370" y="199" text-anchor="middle" fill="var(--neon-green)" font-weight="700" font-size="11" font-family="sans-serif">WORKER γ</text>
-          <text x="370" y="213" text-anchor="middle" fill="var(--text-dim)" font-size="8" font-family="monospace">Cursor</text>
-
-          <!-- Workers → Skills -->
-          <line x1="90" y1="218" x2="90" y2="255" stroke="var(--neon-green)" stroke-width="1.2" stroke-opacity="0.3"/>
-          <line x1="230" y1="218" x2="230" y2="255" stroke="var(--neon-green)" stroke-width="1.2" stroke-opacity="0.3"/>
-          <line x1="370" y1="218" x2="370" y2="255" stroke="var(--neon-green)" stroke-width="1.2" stroke-opacity="0.3"/>
-
-          <!-- SHTF -->
-          <a href="https://gadofir.github.io/shit-hit-the-fan/" target="_blank" class="node">
-            <rect x="30" y="255" width="120" height="40" rx="8" fill="var(--surface-solid)" stroke="var(--neon-pink)" stroke-width="1.5"/>
-            <text x="90" y="273" text-anchor="middle" fill="var(--neon-pink)" font-weight="700" font-size="10" font-family="sans-serif">SHIT HIT</text>
-            <text x="90" y="287" text-anchor="middle" fill="var(--neon-pink)" font-weight="700" font-size="10" font-family="sans-serif">THE FAN</text>
-          </a>
-
-          <!-- CONTRACTX -->
-          <a href="https://gadofir.github.io/contractx-starter/" target="_blank" class="node">
-            <rect x="170" y="255" width="120" height="40" rx="8" fill="var(--surface-solid)" stroke="var(--neon-purple)" stroke-width="2"/>
-            <text x="230" y="280" text-anchor="middle" fill="var(--neon-purple)" font-weight="700" font-size="13" font-family="sans-serif">CONTRACTX</text>
-          </a>
-
-          <!-- Agent Retro -->
-          <a href="https://gadofir.github.io/agent-retro/" target="_blank" class="node">
-            <rect x="310" y="255" width="120" height="40" rx="8" fill="var(--surface-solid)" stroke="var(--neon-blue)" stroke-width="1.5"/>
-            <text x="370" y="273" text-anchor="middle" fill="var(--neon-blue)" font-weight="700" font-size="10" font-family="sans-serif">AGENT</text>
-            <text x="370" y="287" text-anchor="middle" fill="var(--neon-blue)" font-weight="700" font-size="10" font-family="sans-serif">RETRO</text>
-          </a>
-
-          <!-- Skills → LOS (dotted, all three converge) -->
-          <line x1="90" y1="295" x2="140" y2="360" stroke="var(--neon-green)" stroke-width="1.2" stroke-opacity="0.25" stroke-dasharray="4,4"/>
-          <line x1="230" y1="295" x2="230" y2="360" stroke="var(--neon-green)" stroke-width="1.2" stroke-opacity="0.25" stroke-dasharray="4,4"/>
-          <line x1="370" y1="295" x2="320" y2="360" stroke="var(--neon-green)" stroke-width="1.2" stroke-opacity="0.25" stroke-dasharray="4,4"/>
-
-          <!-- LOS — wide memory layer -->
-          <a href="https://gadofir.github.io/LOS-starter/" target="_blank" class="node">
-            <rect x="80" y="360" width="300" height="38" rx="8" fill="var(--surface-solid)" stroke="var(--neon-green)" stroke-width="1.5" stroke-dasharray="4,2"/>
-            <text x="230" y="383" text-anchor="middle" fill="var(--neon-green)" font-weight="700" font-size="14" font-family="sans-serif">LOS — memory layer</text>
-          </a>
-
-          <!-- CONTRACTX → GodsPlan (dotted, vertical drop from CONTRACTX only) -->
-          <line x1="230" y1="295" x2="230" y2="440" stroke="var(--neon-amber)" stroke-width="1.5" stroke-opacity="0.35" stroke-dasharray="5,5"/>
-
-          <!-- GodsPlan -->
-          <a href="https://gadofir.github.io/godsplan/" target="_blank" class="node">
-            <rect x="130" y="440" width="200" height="40" rx="8" fill="var(--surface-solid)" stroke="var(--neon-amber)" stroke-width="1.5" stroke-dasharray="4,2"/>
-            <text x="230" y="458" text-anchor="middle" fill="var(--neon-amber)" font-weight="700" font-size="14" font-family="sans-serif">GODSPLAN</text>
-            <text x="230" y="473" text-anchor="middle" fill="var(--text-dim)" font-size="9" font-family="monospace">planning engine · surface + route</text>
-          </a>
-        </svg>
-      </div>
-    </section>
 
     <!-- Why -->
     <section>
