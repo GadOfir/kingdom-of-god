@@ -482,103 +482,102 @@
       <div class="section-label" style="color: var(--neon-amber);">Architecture</div>
       <h2>Kingdom map</h2>
       <div class="diagram">
-        <svg class="diagram-svg" viewBox="0 0 720 480" xmlns="http://www.w3.org/2000/svg" style="max-width: 720px;">
+        <svg class="diagram-svg" viewBox="0 0 760 520" xmlns="http://www.w3.org/2000/svg" style="max-width: 760px;">
           <defs>
-            <marker id="ahAmber" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto" markerUnits="userSpaceOnUse"><path d="M0,0 L10,5 L0,10 z" fill="var(--neon-amber)"/></marker>
-            <marker id="ahPink" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto" markerUnits="userSpaceOnUse"><path d="M0,0 L10,5 L0,10 z" fill="var(--neon-pink)"/></marker>
-            <marker id="ahBlue" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto" markerUnits="userSpaceOnUse"><path d="M0,0 L10,5 L0,10 z" fill="var(--neon-blue)"/></marker>
-            <marker id="ahPurple" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto" markerUnits="userSpaceOnUse"><path d="M0,0 L10,5 L0,10 z" fill="var(--neon-purple)"/></marker>
-            <marker id="ahGreen" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto" markerUnits="userSpaceOnUse"><path d="M0,0 L10,5 L0,10 z" fill="var(--neon-green)"/></marker>
+            <marker id="ahAmber" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto" markerUnits="userSpaceOnUse"><path d="M0,0 L10,5 L0,10 z" fill="var(--neon-amber)"/></marker>
+            <marker id="ahPink" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto" markerUnits="userSpaceOnUse"><path d="M0,0 L10,5 L0,10 z" fill="var(--neon-pink)"/></marker>
+            <marker id="ahBlue" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto" markerUnits="userSpaceOnUse"><path d="M0,0 L10,5 L0,10 z" fill="var(--neon-blue)"/></marker>
+            <marker id="ahPurple" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto" markerUnits="userSpaceOnUse"><path d="M0,0 L10,5 L0,10 z" fill="var(--neon-purple)"/></marker>
+            <marker id="ahGreen" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto" markerUnits="userSpaceOnUse"><path d="M0,0 L10,5 L0,10 z" fill="var(--neon-green)"/></marker>
           </defs>
 
-          <!-- ============ TIER 3: logic layer frame ============ -->
-          <rect x="74" y="215" width="512" height="132" rx="14" fill="none" stroke="var(--border)" stroke-width="1.2" stroke-dasharray="4,4"/>
-          <text x="88" y="234" fill="var(--text-dim)" font-size="9" font-weight="700" font-family="monospace" letter-spacing="1.5">LOGIC LAYER · KING'S BRAIN</text>
+          <!-- ============ Logic layer frame ============ -->
+          <rect x="64" y="236" width="632" height="150" rx="16" fill="none" stroke="var(--border)" stroke-width="1.3" stroke-dasharray="5,5"/>
+          <text x="82" y="258" fill="var(--text-dim)" font-size="9" font-weight="700" font-family="monospace" letter-spacing="1.5">LOGIC LAYER · KING'S BRAIN</text>
 
-          <!-- ============ King -> Workers (routes) : drawn first so boxes sit on top ============ -->
-          <polyline points="300,150 40,190 40,392 150,410" fill="none" stroke="var(--neon-purple)" stroke-width="1.4" stroke-opacity="0.5" marker-end="url(#ahPurple)"/>
-          <polyline points="420,150 680,190 680,392 590,410" fill="none" stroke="var(--neon-purple)" stroke-width="1.4" stroke-opacity="0.5" marker-end="url(#ahPurple)"/>
-          <line x1="360" y1="150" x2="370" y2="408" stroke="var(--neon-purple)" stroke-width="1.4" stroke-opacity="0.5" marker-end="url(#ahPurple)"/>
-          <text x="88" y="182" fill="var(--neon-purple)" font-size="8" font-family="monospace">routes prompt</text>
-
-          <!-- ============ Workers -> CONTRACTX (read, dashed) ============ -->
-          <line x1="150" y1="408" x2="405" y2="324" stroke="var(--neon-green)" stroke-width="1" stroke-opacity="0.4" stroke-dasharray="4,4" marker-end="url(#ahGreen)"/>
-          <line x1="370" y1="408" x2="420" y2="324" stroke="var(--neon-green)" stroke-width="1" stroke-opacity="0.4" stroke-dasharray="4,4" marker-end="url(#ahGreen)"/>
-          <line x1="590" y1="408" x2="450" y2="324" stroke="var(--neon-green)" stroke-width="1" stroke-opacity="0.4" stroke-dasharray="4,4" marker-end="url(#ahGreen)"/>
-          <text x="398" y="372" fill="var(--neon-green)" font-size="8" font-family="monospace">read</text>
-
-          <!-- ============ TIER 1: God ============ -->
+          <!-- ============ Nodes ============ -->
+          <!-- God -->
           <a href="https://github.com/GadOfir/kingdom-of-god" target="_blank" class="node">
-            <rect x="285" y="12" width="150" height="46" rx="10" fill="var(--surface-solid)" stroke="var(--neon-amber)" stroke-width="2.5"/>
-            <text x="360" y="34" text-anchor="middle" fill="var(--neon-amber)" font-weight="900" font-size="15" font-family="sans-serif">GOD</text>
-            <text x="360" y="50" text-anchor="middle" fill="var(--text-dim)" font-size="9" font-family="monospace">supreme leader</text>
+            <rect x="310" y="28" width="140" height="52" rx="12" fill="var(--surface-solid)" stroke="var(--neon-amber)" stroke-width="2.5"/>
+            <text x="380" y="52" text-anchor="middle" fill="var(--neon-amber)" font-weight="900" font-size="16" font-family="sans-serif">GOD</text>
+            <text x="380" y="68" text-anchor="middle" fill="var(--text-dim)" font-size="9" font-family="monospace">supreme leader</text>
           </a>
-          <!-- God -> King -->
-          <line x1="360" y1="58" x2="360" y2="98" stroke="var(--neon-amber)" stroke-width="1.8" stroke-opacity="0.6" marker-end="url(#ahAmber)"/>
-          <text x="368" y="82" fill="var(--text-dim)" font-size="8" font-family="monospace">sets direction</text>
-
-          <!-- ============ TIER 2: King ============ -->
+          <!-- King -->
           <a href="https://github.com/GadOfir/kingdom-of-god" target="_blank" class="node">
-            <rect x="285" y="100" width="150" height="50" rx="10" fill="var(--surface-solid)" stroke="var(--neon-purple)" stroke-width="2.5"/>
-            <text x="360" y="122" text-anchor="middle" fill="var(--neon-purple)" font-weight="900" font-size="15" font-family="sans-serif">KING</text>
-            <text x="360" y="138" text-anchor="middle" fill="var(--text-dim)" font-size="8" font-family="monospace">orchestrator</text>
+            <rect x="296" y="124" width="168" height="60" rx="12" fill="var(--surface-solid)" stroke="var(--neon-purple)" stroke-width="3"/>
+            <text x="380" y="150" text-anchor="middle" fill="var(--neon-purple)" font-weight="900" font-size="17" font-family="sans-serif">KING</text>
+            <text x="380" y="167" text-anchor="middle" fill="var(--text-dim)" font-size="8.5" font-family="monospace">orchestrator · sole hub</text>
           </a>
-
-          <!-- ============ Feeders -> King (up) ============ -->
-          <line x1="132" y1="258" x2="330" y2="150" stroke="var(--neon-amber)" stroke-width="1.4" stroke-opacity="0.55" marker-end="url(#ahAmber)"/>
-          <line x1="222" y1="258" x2="348" y2="150" stroke="var(--neon-pink)" stroke-width="1.4" stroke-opacity="0.55" marker-end="url(#ahPink)"/>
-          <line x1="312" y1="258" x2="366" y2="150" stroke="var(--neon-blue)" stroke-width="1.4" stroke-opacity="0.55" marker-end="url(#ahBlue)"/>
-          <text x="150" y="200" fill="var(--neon-amber)" font-size="8" font-family="monospace">the plan</text>
-          <text x="238" y="212" fill="var(--neon-pink)" font-size="8" font-family="monospace">triage</text>
-          <text x="316" y="224" fill="var(--neon-blue)" font-size="8" font-family="monospace">learnings</text>
-
-          <!-- ============ King -> writes (down) ============ -->
-          <line x1="392" y1="150" x2="428" y2="258" stroke="var(--neon-purple)" stroke-width="1.4" stroke-opacity="0.55" marker-end="url(#ahPurple)"/>
-          <line x1="412" y1="150" x2="518" y2="258" stroke="var(--neon-purple)" stroke-width="1.4" stroke-opacity="0.55" marker-end="url(#ahPurple)"/>
-          <text x="430" y="200" fill="var(--neon-purple)" font-size="8" font-family="monospace">contracts</text>
-          <text x="470" y="224" fill="var(--neon-purple)" font-size="8" font-family="monospace">memory</text>
-
-          <!-- ============ TIER 3 boxes: logic layer skills ============ -->
-          <!-- feeders group -->
+          <!-- Feeders group -->
           <a href="https://github.com/GadOfir/godsplan" target="_blank" class="node">
-            <rect x="92" y="258" width="80" height="64" rx="8" fill="var(--surface-solid)" stroke="var(--neon-amber)" stroke-width="1.6"/>
-            <text x="132" y="286" text-anchor="middle" fill="var(--neon-amber)" font-weight="700" font-size="11" font-family="sans-serif">GodsPlan</text>
-            <text x="132" y="300" text-anchor="middle" fill="var(--text-dim)" font-size="7.5" font-family="monospace">planning</text>
+            <rect x="88" y="278" width="104" height="76" rx="10" fill="var(--surface-solid)" stroke="var(--neon-amber)" stroke-width="1.8"/>
+            <text x="140" y="310" text-anchor="middle" fill="var(--neon-amber)" font-weight="700" font-size="12" font-family="sans-serif">GodsPlan</text>
+            <text x="140" y="326" text-anchor="middle" fill="var(--text-dim)" font-size="8" font-family="monospace">planning</text>
           </a>
           <a href="https://github.com/GadOfir/shit-hit-the-fan" target="_blank" class="node">
-            <rect x="182" y="258" width="80" height="64" rx="8" fill="var(--surface-solid)" stroke="var(--neon-pink)" stroke-width="1.6"/>
-            <text x="222" y="284" text-anchor="middle" fill="var(--neon-pink)" font-weight="700" font-size="10" font-family="sans-serif">SHIT HIT</text>
-            <text x="222" y="297" text-anchor="middle" fill="var(--neon-pink)" font-weight="700" font-size="10" font-family="sans-serif">THE FAN</text>
-            <text x="222" y="311" text-anchor="middle" fill="var(--text-dim)" font-size="7.5" font-family="monospace">triage</text>
+            <rect x="212" y="278" width="104" height="76" rx="10" fill="var(--surface-solid)" stroke="var(--neon-pink)" stroke-width="1.8"/>
+            <text x="264" y="306" text-anchor="middle" fill="var(--neon-pink)" font-weight="700" font-size="11" font-family="sans-serif">SHIT HIT</text>
+            <text x="264" y="320" text-anchor="middle" fill="var(--neon-pink)" font-weight="700" font-size="11" font-family="sans-serif">THE FAN</text>
+            <text x="264" y="336" text-anchor="middle" fill="var(--text-dim)" font-size="8" font-family="monospace">triage</text>
           </a>
           <a href="https://github.com/GadOfir/agent-retro" target="_blank" class="node">
-            <rect x="272" y="258" width="80" height="64" rx="8" fill="var(--surface-solid)" stroke="var(--neon-blue)" stroke-width="1.6"/>
-            <text x="312" y="284" text-anchor="middle" fill="var(--neon-blue)" font-weight="700" font-size="10" font-family="sans-serif">AGENT</text>
-            <text x="312" y="297" text-anchor="middle" fill="var(--neon-blue)" font-weight="700" font-size="10" font-family="sans-serif">RETRO</text>
-            <text x="312" y="311" text-anchor="middle" fill="var(--text-dim)" font-size="7.5" font-family="monospace">learning</text>
+            <rect x="336" y="278" width="104" height="76" rx="10" fill="var(--surface-solid)" stroke="var(--neon-blue)" stroke-width="1.8"/>
+            <text x="388" y="306" text-anchor="middle" fill="var(--neon-blue)" font-weight="700" font-size="11" font-family="sans-serif">AGENT</text>
+            <text x="388" y="320" text-anchor="middle" fill="var(--neon-blue)" font-weight="700" font-size="11" font-family="sans-serif">RETRO</text>
+            <text x="388" y="336" text-anchor="middle" fill="var(--text-dim)" font-size="8" font-family="monospace">learning</text>
           </a>
-          <!-- King writes group -->
+          <!-- King-writes group -->
           <a href="https://github.com/GadOfir/contractx-starter" target="_blank" class="node">
-            <rect x="388" y="258" width="80" height="64" rx="8" fill="var(--surface-solid)" stroke="var(--neon-purple)" stroke-width="2.2"/>
-            <text x="428" y="288" text-anchor="middle" fill="var(--neon-purple)" font-weight="700" font-size="10" font-family="sans-serif">CONTRACTX</text>
-            <text x="428" y="302" text-anchor="middle" fill="var(--text-dim)" font-size="7.5" font-family="monospace">contracts</text>
+            <rect x="460" y="278" width="104" height="76" rx="10" fill="var(--surface-solid)" stroke="var(--neon-purple)" stroke-width="2.4"/>
+            <text x="512" y="312" text-anchor="middle" fill="var(--neon-purple)" font-weight="700" font-size="11" font-family="sans-serif">CONTRACTX</text>
+            <text x="512" y="327" text-anchor="middle" fill="var(--text-dim)" font-size="8" font-family="monospace">contracts</text>
           </a>
           <a href="https://github.com/GadOfir/LOS-starter" target="_blank" class="node">
-            <rect x="478" y="258" width="80" height="64" rx="8" fill="var(--surface-solid)" stroke="var(--neon-green)" stroke-width="1.6" stroke-dasharray="5,3"/>
-            <text x="518" y="286" text-anchor="middle" fill="var(--neon-green)" font-weight="700" font-size="12" font-family="sans-serif">LOS</text>
-            <text x="518" y="301" text-anchor="middle" fill="var(--text-dim)" font-size="7.5" font-family="monospace">wiki memory</text>
+            <rect x="584" y="278" width="104" height="76" rx="10" fill="var(--surface-solid)" stroke="var(--neon-green)" stroke-width="1.8" stroke-dasharray="6,4"/>
+            <text x="636" y="312" text-anchor="middle" fill="var(--neon-green)" font-weight="700" font-size="13" font-family="sans-serif">LOS</text>
+            <text x="636" y="328" text-anchor="middle" fill="var(--text-dim)" font-size="8" font-family="monospace">wiki memory</text>
           </a>
+          <!-- Workers -->
+          <rect x="76" y="440" width="168" height="60" rx="10" fill="var(--surface-solid)" stroke="var(--neon-green)" stroke-width="1.6"/>
+          <text x="160" y="468" text-anchor="middle" fill="var(--neon-green)" font-weight="700" font-size="12" font-family="sans-serif">WORKER α</text>
+          <text x="160" y="484" text-anchor="middle" fill="var(--text-dim)" font-size="8.5" font-family="monospace">Claude Code</text>
+          <rect x="296" y="440" width="168" height="60" rx="10" fill="var(--surface-solid)" stroke="var(--neon-green)" stroke-width="1.6"/>
+          <text x="380" y="468" text-anchor="middle" fill="var(--neon-green)" font-weight="700" font-size="12" font-family="sans-serif">WORKER β</text>
+          <text x="380" y="484" text-anchor="middle" fill="var(--text-dim)" font-size="8.5" font-family="monospace">Codex</text>
+          <rect x="516" y="440" width="168" height="60" rx="10" fill="var(--surface-solid)" stroke="var(--neon-green)" stroke-width="1.6"/>
+          <text x="600" y="468" text-anchor="middle" fill="var(--neon-green)" font-weight="700" font-size="12" font-family="sans-serif">WORKER γ</text>
+          <text x="600" y="484" text-anchor="middle" fill="var(--text-dim)" font-size="8.5" font-family="monospace">Cursor</text>
 
-          <!-- ============ TIER 4: Workers ============ -->
-          <rect x="75" y="410" width="150" height="44" rx="8" fill="var(--surface-solid)" stroke="var(--neon-green)" stroke-width="1.4"/>
-          <text x="150" y="431" text-anchor="middle" fill="var(--neon-green)" font-weight="700" font-size="11" font-family="sans-serif">WORKER α</text>
-          <text x="150" y="445" text-anchor="middle" fill="var(--text-dim)" font-size="8" font-family="monospace">Claude Code</text>
-          <rect x="295" y="410" width="150" height="44" rx="8" fill="var(--surface-solid)" stroke="var(--neon-green)" stroke-width="1.4"/>
-          <text x="370" y="431" text-anchor="middle" fill="var(--neon-green)" font-weight="700" font-size="11" font-family="sans-serif">WORKER β</text>
-          <text x="370" y="445" text-anchor="middle" fill="var(--text-dim)" font-size="8" font-family="monospace">Codex</text>
-          <rect x="515" y="410" width="150" height="44" rx="8" fill="var(--surface-solid)" stroke="var(--neon-green)" stroke-width="1.4"/>
-          <text x="590" y="431" text-anchor="middle" fill="var(--neon-green)" font-weight="700" font-size="11" font-family="sans-serif">WORKER γ</text>
-          <text x="590" y="445" text-anchor="middle" fill="var(--text-dim)" font-size="8" font-family="monospace">Cursor</text>
+          <!-- ============ Connectors (orthogonal) ============ -->
+          <!-- God -> King -->
+          <path d="M380,80 V124" fill="none" stroke="var(--neon-amber)" stroke-width="1.8" stroke-opacity="0.7" marker-end="url(#ahAmber)"/>
+          <text x="388" y="106" fill="var(--text-dim)" font-size="8.5" font-family="monospace">sets direction</text>
+
+          <!-- Feeders -> King (up into King bottom) -->
+          <path d="M140,278 V220 H322 V184" fill="none" stroke="var(--neon-amber)" stroke-width="1.4" stroke-opacity="0.65" marker-end="url(#ahAmber)"/>
+          <path d="M264,278 V210 H342 V184" fill="none" stroke="var(--neon-pink)" stroke-width="1.4" stroke-opacity="0.65" marker-end="url(#ahPink)"/>
+          <path d="M388,278 V200 H362 V184" fill="none" stroke="var(--neon-blue)" stroke-width="1.4" stroke-opacity="0.65" marker-end="url(#ahBlue)"/>
+          <text x="146" y="216" fill="var(--neon-amber)" font-size="8" font-family="monospace">the plan</text>
+          <text x="270" y="206" fill="var(--neon-pink)" font-size="8" font-family="monospace">triage</text>
+          <text x="300" y="196" fill="var(--neon-blue)" font-size="8" font-family="monospace">learnings</text>
+
+          <!-- King -> writes (down into boxes) -->
+          <path d="M398,184 V200 H512 V278" fill="none" stroke="var(--neon-purple)" stroke-width="1.4" stroke-opacity="0.65" marker-end="url(#ahPurple)"/>
+          <path d="M418,184 V210 H636 V278" fill="none" stroke="var(--neon-purple)" stroke-width="1.4" stroke-opacity="0.65" marker-end="url(#ahPurple)"/>
+          <text x="428" y="196" fill="var(--neon-purple)" font-size="8" font-family="monospace">writes contracts</text>
+          <text x="540" y="206" fill="var(--neon-purple)" font-size="8" font-family="monospace">writes memory</text>
+
+          <!-- King -> Workers (routes, subtle) -->
+          <path d="M296,160 H44 V430 H160 V440" fill="none" stroke="var(--neon-purple)" stroke-width="1.3" stroke-opacity="0.4" marker-end="url(#ahPurple)"/>
+          <path d="M464,160 H716 V430 H600 V440" fill="none" stroke="var(--neon-purple)" stroke-width="1.3" stroke-opacity="0.4" marker-end="url(#ahPurple)"/>
+          <path d="M380,184 V196 H450 V430 H380 V440" fill="none" stroke="var(--neon-purple)" stroke-width="1.3" stroke-opacity="0.4" marker-end="url(#ahPurple)"/>
+          <text x="150" y="156" fill="var(--neon-purple)" font-size="8" font-family="monospace">routes prompt</text>
+
+          <!-- Workers -> CONTRACTX (read, dashed, subtle) -->
+          <path d="M160,440 V414 H488 V354" fill="none" stroke="var(--neon-green)" stroke-width="1.1" stroke-opacity="0.4" stroke-dasharray="4,4" marker-end="url(#ahGreen)"/>
+          <path d="M380,440 V420 H500 V354" fill="none" stroke="var(--neon-green)" stroke-width="1.1" stroke-opacity="0.4" stroke-dasharray="4,4" marker-end="url(#ahGreen)"/>
+          <path d="M600,440 V414 H536 V354" fill="none" stroke="var(--neon-green)" stroke-width="1.1" stroke-opacity="0.4" stroke-dasharray="4,4" marker-end="url(#ahGreen)"/>
+          <text x="510" y="410" fill="var(--neon-green)" font-size="8" font-family="monospace">read (contract-bound)</text>
         </svg>
       </div>
     </section>
