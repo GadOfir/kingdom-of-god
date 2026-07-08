@@ -3,7 +3,7 @@ name: kingdom-of-god
 description: >
   Skill router built on Adversarial Alignment. Persona matrix: God (supreme leader)
   sets direction, King (orchestrator) routes work + reads CONTRACTX, Workers execute
-  with fresh context windows. Routes between Shit Hit The Fan, CONTRACTX, Agent Retro.
+  with fresh context windows. Routes between GodsPlan, Shit Hit The Fan, CONTRACTX, Agent Retro.
   LOS provides optional long-term memory with retention and ingest policies.
 argument-hint: "[route | status]"
 ---
@@ -32,10 +32,18 @@ Workers execute without code-pattern bias.
 
 | Stage | Skill | Trigger |
 |---|---|---|
+| Planning | GodsPlan | New work. Define the surface, author a property-based plan. |
 | Triage | Shit Hit The Fan | Something broke. Route to the right fix. |
 | Contracts | CONTRACTX | Rules need enforcing. Walk before edit. |
 | Learning | Agent Retro | Session ended. Triage by model×harness×step. |
 | Memory | LOS (optional) | Long-term wiki. Cross-session, cross-project. |
+
+## Plug-in Skills
+
+Workers can pull in external skills so the King doesn't run everything.
+Reference a skill by link (always latest), then wire it to an upper skill so it
+fires at the right stage. Example: improve-codebase-architecture → Agent Retro
+(the agent checks whether the architecture stayed clean during the retro).
 
 ## LOS — Memory Layer
 

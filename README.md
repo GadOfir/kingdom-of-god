@@ -15,10 +15,25 @@ not code. God rules. King orchestrates. Workers execute with fresh context.
 
 | Skill | Stage | URL |
 |---|---|---|
+| GodsPlan | Planning | https://gadofir.github.io/godsplan/ |
 | Shit Hit The Fan | Triage | https://gadofir.github.io/shit-hit-the-fan/ |
 | CONTRACTX | Contracts | https://gadofir.github.io/contractx-starter/ |
 | Agent Retro | Learning | https://gadofir.github.io/agent-retro/ |
 | LOS | Memory (optional) | https://gadofir.github.io/LOS-starter/ |
+
+## Plug-in skills
+
+You don't have to make the King run everything. Drop external skills into the
+registry below the Workers — Workers pull them in on demand, so the King stays
+focused on routing and contracts.
+
+- **Reference by link, not by copy.** Point to a skill's repo/page and the agent
+  fetches the latest version every run — no stale copies.
+- **Wire each plug-in to an upper skill** so it fires at the right stage.
+
+Example: wire [improve-codebase-architecture](https://github.com/mattpocock/skills/tree/main/skills/engineering/improve-codebase-architecture)
+to **Agent Retro** — during the retro the agent references what a good
+architecture looks like and checks whether its changes drifted the structure.
 
 ## LOS — Memory Layer
 
