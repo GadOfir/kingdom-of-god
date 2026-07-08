@@ -1,0 +1,806 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Kingdom of God — Adversarial Alignment in practice. Steer models with real-world use cases, not code. God rules, King orchestrates, Workers execute with fresh context.">
+  <meta name="color-scheme" content="light dark">
+  <title>Kingdom of God — Adversarial Alignment</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --bg: #0a0e1a;
+      --surface: rgba(15, 22, 40, 0.85);
+      --surface-solid: #0f1628;
+      --text: #e8ecf4;
+      --text-mid: #9aa3b8;
+      --text-dim: #5a6478;
+      --border: #1e2a42;
+      --grid-line: rgba(56, 120, 240, 0.06);
+      --grid-line-strong: rgba(56, 120, 240, 0.12);
+
+      --neon-blue: #5b9ef5;
+      --neon-purple: #a78bfa;
+      --neon-green: #34d399;
+      --neon-amber: #f5b942;
+      --neon-pink: #f472b6;
+      --neon-cyan: #22d3ee;
+
+      --neon-blue-soft: rgba(91, 158, 245, 0.1);
+      --neon-purple-soft: rgba(167, 139, 250, 0.1);
+      --neon-green-soft: rgba(52, 211, 153, 0.1);
+      --neon-amber-soft: rgba(245, 185, 66, 0.1);
+      --neon-pink-soft: rgba(244, 114, 182, 0.1);
+      --neon-cyan-soft: rgba(34, 211, 238, 0.1);
+
+      --radius: 14px;
+      --sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+      --mono: "JetBrains Mono", "SF Mono", "Cascadia Code", Consolas, monospace;
+    }
+
+    @media (prefers-color-scheme: light) {
+      :root {
+        --bg: #f5f0e8;
+        --surface: rgba(255, 255, 255, 0.85);
+        --surface-solid: #ffffff;
+        --text: #1a1a1a;
+        --text-mid: #5c5c5c;
+        --text-dim: #8c8c8c;
+        --border: #e0d8cc;
+        --grid-line: rgba(180, 160, 130, 0.08);
+        --grid-line-strong: rgba(180, 160, 130, 0.15);
+        --neon-blue: #2563eb;
+        --neon-purple: #7c3aed;
+        --neon-green: #059669;
+        --neon-amber: #d97706;
+        --neon-pink: #db2777;
+        --neon-cyan: #0891b2;
+        --neon-blue-soft: rgba(37, 99, 235, 0.08);
+        --neon-purple-soft: rgba(124, 58, 237, 0.08);
+        --neon-green-soft: rgba(5, 150, 105, 0.08);
+        --neon-amber-soft: rgba(217, 119, 6, 0.08);
+        --neon-pink-soft: rgba(219, 39, 119, 0.08);
+        --neon-cyan-soft: rgba(8, 145, 178, 0.08);
+      }
+    }
+
+    [data-theme="light"] {
+      --bg: #f5f0e8; --surface: rgba(255,255,255,0.85); --surface-solid: #fff;
+      --text: #1a1a1a; --text-mid: #5c5c5c; --text-dim: #8c8c8c; --border: #e0d8cc;
+      --grid-line: rgba(180,160,130,0.08); --grid-line-strong: rgba(180,160,130,0.15);
+      --neon-blue: #2563eb; --neon-purple: #7c3aed; --neon-green: #059669;
+      --neon-amber: #d97706; --neon-pink: #db2777; --neon-cyan: #0891b2;
+      --neon-blue-soft: rgba(37,99,235,0.08); --neon-purple-soft: rgba(124,58,237,0.08);
+      --neon-green-soft: rgba(5,150,105,0.08); --neon-amber-soft: rgba(217,119,6,0.08);
+      --neon-pink-soft: rgba(219,39,119,0.08); --neon-cyan-soft: rgba(8,145,178,0.08);
+    }
+
+    [data-theme="dark"] {
+      --bg: #0a0e1a; --surface: rgba(15,22,40,0.85); --surface-solid: #0f1628;
+      --text: #e8ecf4; --text-mid: #9aa3b8; --text-dim: #5a6478; --border: #1e2a42;
+      --grid-line: rgba(56,120,240,0.06); --grid-line-strong: rgba(56,120,240,0.12);
+      --neon-blue: #5b9ef5; --neon-purple: #a78bfa; --neon-green: #34d399;
+      --neon-amber: #f5b942; --neon-pink: #f472b6; --neon-cyan: #22d3ee;
+      --neon-blue-soft: rgba(91,158,245,0.1); --neon-purple-soft: rgba(167,139,250,0.1);
+      --neon-green-soft: rgba(52,211,153,0.1); --neon-amber-soft: rgba(245,185,66,0.1);
+      --neon-pink-soft: rgba(244,114,182,0.1); --neon-cyan-soft: rgba(34,211,238,0.1);
+    }
+
+    html { scroll-padding-top: 3.5rem; scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--sans);
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      font-size: 16px;
+      -webkit-font-smoothing: antialiased;
+      background-image:
+        linear-gradient(var(--grid-line) 1px, transparent 1px),
+        linear-gradient(90deg, var(--grid-line) 1px, transparent 1px),
+        linear-gradient(var(--grid-line-strong) 1px, transparent 1px),
+        linear-gradient(90deg, var(--grid-line-strong) 1px, transparent 1px);
+      background-size: 20px 20px, 20px 20px, 100px 100px, 100px 100px;
+      background-position: center center;
+    }
+
+    .wrap { max-width: 880px; margin: 0 auto; padding: 0 2rem; }
+
+    .topnav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; justify-content: center; align-items: center; gap: 0.4rem;
+      padding: 0.8rem 1rem; background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+    }
+    .topnav a, .topnav button {
+      font-family: var(--mono); font-size: 0.88rem; font-weight: 600;
+      color: var(--text-mid); text-decoration: none; background: none;
+      border: 1px solid transparent; border-radius: 8px; padding: 0.45rem 1rem;
+      cursor: pointer; transition: color 0.15s, border-color 0.15s;
+    }
+    .topnav a:hover, .topnav button:hover { color: var(--text); border-color: var(--border); }
+
+    .hero {
+      padding: clamp(5rem, 12vh, 8rem) 0 2rem;
+      text-align: center;
+      animation: fadeIn 0.6s ease-out;
+    }
+    .hero h1 {
+      font-family: var(--sans);
+      font-size: clamp(3rem, 7vw, 5rem);
+      font-weight: 900;
+      letter-spacing: -0.05em;
+      line-height: 1;
+      margin-bottom: 1.5rem;
+    }
+    .hero h1 .neon { color: var(--neon-amber); text-shadow: 0 0 40px rgba(245, 185, 66, 0.3); }
+
+    .hero-sub {
+      font-size: clamp(1.1rem, 2.2vw, 1.3rem);
+      color: var(--text-mid);
+      max-width: 520px;
+      margin: 0 auto 1.8rem;
+      font-weight: 400;
+      line-height: 1.6;
+    }
+
+    .hero-extra {
+      font-size: 1rem;
+      color: var(--neon-green);
+      margin-bottom: 1.5rem;
+    }
+
+    .terminal {
+      display: inline-block;
+      background: var(--surface-solid);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.4rem 2rem;
+      font-family: var(--mono);
+      font-size: 0.95rem;
+      text-align: left;
+      line-height: 2.2;
+      backdrop-filter: blur(12px);
+    }
+    .terminal .prompt { color: var(--neon-green); font-weight: 600; }
+    .terminal .cmd { color: var(--text); }
+    .terminal .cmt { color: var(--text-dim); }
+
+    section { padding: 2.5rem 0; }
+    .section-label {
+      font-family: var(--mono);
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 0.5rem;
+    }
+    section h2 {
+      font-family: var(--sans);
+      font-size: clamp(1.6rem, 3vw, 2rem);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      margin-bottom: 0.5rem;
+    }
+    section > .desc {
+      color: var(--text-mid);
+      font-size: 1.05rem;
+      margin-bottom: 2.5rem;
+      line-height: 1.6;
+    }
+
+    /* ---- Cards ---- */
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.2rem;
+    }
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.6rem;
+      border-top: 3px solid transparent;
+      transition: transform 0.15s, box-shadow 0.15s;
+      animation: fadeUp 0.5s ease-out both;
+      backdrop-filter: blur(12px);
+    }
+    .card:hover { transform: translateY(-3px); }
+    .card .card-name {
+      font-family: var(--mono);
+      font-size: 1.05rem;
+      font-weight: 700;
+      margin-bottom: 0.6rem;
+    }
+    .card .card-what {
+      font-size: 0.95rem;
+      color: var(--text-mid);
+      line-height: 1.6;
+    }
+    .card .card-try {
+      margin-top: 0.9rem;
+      font-family: var(--mono);
+      font-size: 0.8rem;
+      color: var(--text-dim);
+    }
+    .card:nth-child(6n+1) { border-top-color: var(--neon-blue); }
+    .card:nth-child(6n+2) { border-top-color: var(--neon-green); }
+    .card:nth-child(6n+3) { border-top-color: var(--neon-amber); }
+    .card:nth-child(6n+4) { border-top-color: var(--neon-pink); }
+    .card:nth-child(6n+5) { border-top-color: var(--neon-cyan); }
+    .card:nth-child(6n+6) { border-top-color: var(--neon-purple); }
+    .card:nth-child(6n+1) .card-name { color: var(--neon-blue); }
+    .card:nth-child(6n+2) .card-name { color: var(--neon-green); }
+    .card:nth-child(6n+3) .card-name { color: var(--neon-amber); }
+    .card:nth-child(6n+4) .card-name { color: var(--neon-pink); }
+    .card:nth-child(6n+5) .card-name { color: var(--neon-cyan); }
+    .card:nth-child(6n+6) .card-name { color: var(--neon-purple); }
+    .card:nth-child(6n+1):hover { box-shadow: 0 8px 32px rgba(91,158,245,0.15); }
+    .card:nth-child(6n+2):hover { box-shadow: 0 8px 32px rgba(52,211,153,0.15); }
+    .card:nth-child(6n+3):hover { box-shadow: 0 8px 32px rgba(245,185,66,0.15); }
+    .card:nth-child(6n+4):hover { box-shadow: 0 8px 32px rgba(244,114,182,0.15); }
+    .card:nth-child(6n+5):hover { box-shadow: 0 8px 32px rgba(34,211,238,0.15); }
+    .card:nth-child(6n+6):hover { box-shadow: 0 8px 32px rgba(167,139,250,0.15); }
+
+    /* ---- Steps ---- */
+    .steps { display: grid; gap: 2rem; }
+    .step {
+      display: grid;
+      grid-template-columns: 3.2rem 1fr;
+      gap: 1.2rem;
+      align-items: start;
+      animation: fadeUp 0.4s ease-out both;
+    }
+    .step:nth-child(1) .num { background: var(--neon-green-soft); color: var(--neon-green); border: 1px solid rgba(52,211,153,0.2); }
+    .step:nth-child(2) .num { background: var(--neon-blue-soft); color: var(--neon-blue); border: 1px solid rgba(91,158,245,0.2); }
+    .step:nth-child(3) .num { background: var(--neon-purple-soft); color: var(--neon-purple); border: 1px solid rgba(167,139,250,0.2); }
+    .step:nth-child(4) .num { background: var(--neon-amber-soft); color: var(--neon-amber); border: 1px solid rgba(245,185,66,0.2); }
+    .step:nth-child(2) { animation-delay: 0.08s; }
+    .step:nth-child(3) { animation-delay: 0.16s; }
+    .step:nth-child(4) { animation-delay: 0.24s; }
+    .num {
+      width: 3.2rem; height: 3.2rem;
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--mono); font-weight: 700; font-size: 1.1rem;
+      border-radius: 10px;
+    }
+    .step h3 { font-size: 1.15rem; font-weight: 700; margin-bottom: 0.25rem; }
+    .step p { font-size: 1rem; color: var(--text-mid); line-height: 1.6; }
+
+    /* ---- Tree ---- */
+    .tree {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 2rem 2.5rem;
+      font-family: var(--mono);
+      font-size: 0.92rem;
+      line-height: 2.3;
+      overflow-x: auto;
+      backdrop-filter: blur(12px);
+    }
+    .tree .g  { color: var(--neon-green); }
+    .tree .b  { color: var(--neon-blue); }
+    .tree .c { color: var(--text-dim); font-weight: 400; }
+    .tree .a  { color: var(--neon-amber); }
+    .tree .p  { color: var(--neon-pink); }
+
+    /* ---- Why ---- */
+    .point {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 2.5rem;
+      backdrop-filter: blur(12px);
+      margin-bottom: 2.5rem;
+    }
+    .point h3 { font-size: 1.2rem; font-weight: 700; margin-bottom: 0.6rem; }
+    .point p { font-size: 1.05rem; color: var(--text-mid); line-height: 1.7; }
+    .point p + p { margin-top: 0.8rem; }
+    .point .highlight { color: var(--text); font-weight: 600; }
+
+    /* ---- Spotlight ---- */
+    .spotlight {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 2.5rem;
+      backdrop-filter: blur(12px);
+      border-top: 3px solid var(--neon-amber);
+    }
+    .spotlight h3 {
+      font-family: var(--mono);
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--neon-amber);
+      margin-bottom: 0.8rem;
+    }
+    .spotlight p { font-size: 1.02rem; color: var(--text-mid); line-height: 1.7; }
+    .spotlight p + p { margin-top: 0.8rem; }
+
+    /* ---- Concept blocks ---- */
+    .concepts { display: grid; gap: 1.5rem; }
+    .concept {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 2rem 2.5rem;
+      backdrop-filter: blur(12px);
+      border-left: 3px solid transparent;
+    }
+    .concept:nth-child(1) { border-left-color: var(--neon-amber); }
+    .concept:nth-child(2) { border-left-color: var(--neon-purple); }
+    .concept:nth-child(3) { border-left-color: var(--neon-green); }
+    .concept:nth-child(1) h3 { color: var(--neon-amber); }
+    .concept:nth-child(2) h3 { color: var(--neon-purple); }
+    .concept:nth-child(3) h3 { color: var(--neon-green); }
+    .concept h3 {
+      font-family: var(--mono); font-size: 1.05rem; font-weight: 700;
+      margin-bottom: 0.8rem;
+    }
+    .concept p { font-size: 0.98rem; color: var(--text-mid); line-height: 1.7; }
+    .concept p + p { margin-top: 0.7rem; }
+
+    /* ---- Use cases ---- */
+    .cases {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.2rem;
+    }
+    .case {
+      padding: 1.5rem;
+      border-radius: var(--radius);
+      border-left: 3px solid transparent;
+      backdrop-filter: blur(8px);
+    }
+    .case:nth-child(6n+1) { background: var(--neon-blue-soft); border-left-color: var(--neon-blue); }
+    .case:nth-child(6n+2) { background: var(--neon-green-soft); border-left-color: var(--neon-green); }
+    .case:nth-child(6n+3) { background: var(--neon-amber-soft); border-left-color: var(--neon-amber); }
+    .case:nth-child(6n+4) { background: var(--neon-pink-soft); border-left-color: var(--neon-pink); }
+    .case:nth-child(6n+5) { background: var(--neon-purple-soft); border-left-color: var(--neon-purple); }
+    .case:nth-child(6n+6) { background: var(--neon-cyan-soft); border-left-color: var(--neon-cyan); }
+    .case h3 { font-size: 1rem; font-weight: 700; margin-bottom: 0.35rem; }
+    .case p { font-size: 0.92rem; color: var(--text-mid); line-height: 1.6; }
+
+    /* ---- FAQ ---- */
+    .faq { display: grid; gap: 0.6rem; }
+    .faq details {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--radius); backdrop-filter: blur(12px); overflow: hidden;
+    }
+    .faq summary {
+      padding: 1.2rem 1.8rem; cursor: pointer; font-weight: 600;
+      font-size: 1rem; list-style: none;
+      display: flex; align-items: center; gap: 0.8rem; user-select: none;
+    }
+    .faq summary::-webkit-details-marker { display: none; }
+    .faq summary::before {
+      content: "+"; font-family: var(--mono); font-size: 1.2rem;
+      font-weight: 700; color: var(--neon-amber); width: 1.5rem;
+      flex-shrink: 0; transition: transform 0.2s;
+    }
+    .faq details[open] summary::before { content: "\2212"; }
+    .faq .faq-body {
+      padding: 0 1.8rem 1.4rem 3.8rem;
+      color: var(--text-mid); font-size: 0.95rem; line-height: 1.7;
+    }
+    .faq .faq-body p + p { margin-top: 0.6rem; }
+
+    /* ---- About ---- */
+    .about-card {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 2.5rem;
+      backdrop-filter: blur(12px); border-top: 3px solid var(--neon-purple);
+      display: grid; grid-template-columns: 1fr auto; gap: 2rem; align-items: start;
+    }
+    @media (max-width: 640px) { .about-card { grid-template-columns: 1fr; } }
+    .about-card h3 { font-size: 1.4rem; font-weight: 800; margin-bottom: 0.4rem; }
+    .about-card .role {
+      font-family: var(--mono); font-size: 0.9rem; color: var(--neon-purple);
+      font-weight: 600; margin-bottom: 0.8rem;
+    }
+    .about-card p { font-size: 1rem; color: var(--text-mid); line-height: 1.7; }
+    .about-meta {
+      font-family: var(--mono); font-size: 0.82rem;
+      color: var(--text-dim); line-height: 2; text-align: right; white-space: nowrap;
+    }
+    .about-source {
+      margin-top: 1rem; font-family: var(--mono); font-size: 0.78rem;
+      color: var(--text-dim); font-style: italic;
+    }
+
+    /* ---- Diagram ---- */
+    .diagram {
+      display: flex; flex-direction: column; align-items: center;
+      margin: 1rem 0 3rem;
+    }
+    .diagram-svg { max-width: 500px; width: 100%; }
+    .diagram-svg .node { cursor: pointer; transition: filter 0.2s; }
+    .diagram-svg .node:hover { filter: brightness(1.3); }
+
+    /* ---- Skills links ---- */
+    .skill-links { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.2rem; }
+    .skill-link {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 1.6rem;
+      text-decoration: none; color: var(--text);
+      border-left: 3px solid transparent;
+      backdrop-filter: blur(12px); transition: transform 0.15s, box-shadow 0.15s;
+      display: block;
+    }
+    .skill-link:hover { transform: translateY(-3px); }
+    .skill-link h3 { font-family: var(--mono); font-size: 1rem; font-weight: 700; margin-bottom: 0.4rem; }
+    .skill-link p { font-size: 0.92rem; color: var(--text-mid); line-height: 1.6; }
+    .skill-link:nth-child(1) { border-left-color: var(--neon-pink); }
+    .skill-link:nth-child(1):hover { box-shadow: 0 8px 32px rgba(244,114,182,0.15); }
+    .skill-link:nth-child(1) h3 { color: var(--neon-pink); }
+    .skill-link:nth-child(2) { border-left-color: var(--neon-purple); }
+    .skill-link:nth-child(2):hover { box-shadow: 0 8px 32px rgba(167,139,250,0.15); }
+    .skill-link:nth-child(2) h3 { color: var(--neon-purple); }
+    .skill-link:nth-child(3) { border-left-color: var(--neon-blue); }
+    .skill-link:nth-child(3):hover { box-shadow: 0 8px 32px rgba(91,158,245,0.15); }
+    .skill-link:nth-child(3) h3 { color: var(--neon-blue); }
+
+    footer {
+      padding: 3.5rem 0; text-align: center; color: var(--text-dim);
+      font-size: 0.9rem; border-top: 1px solid var(--border); margin-top: 3rem;
+    }
+    footer a { color: var(--neon-purple); text-decoration: none; font-weight: 500; }
+    footer a:hover { text-decoration: underline; }
+
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
+  </style>
+</head>
+<body>
+  <nav class="topnav">
+    <a href="#">Home</a>
+    <a href="#skills">Skills</a>
+    <button onclick="toggleTheme()"><span class="theme-icon">&#9789;</span> Theme</button>
+  </nav>
+
+  <div class="wrap">
+
+    <!-- Hero -->
+    <header class="hero">
+      <h1><span class="neon">Kingdom of God</span></h1>
+      <p class="hero-sub">Adversarial Alignment in practice. Steer models with real-world use cases, not code.</p>
+      <p class="hero-extra">God rules. King orchestrates. Workers execute with fresh context.</p>
+      <div class="terminal">
+        <span class="prompt">$</span> <span class="cmd"># God sets direction. King routes work.</span>
+        <span class="cmt"># Workers execute with CONTRACTX-bound context.</span>
+        <span class="prompt">$</span> <span class="cmd"># Adversarial Alignment: steer the model, don't code-train it.</span>
+      </div>
+    </header>
+
+    <!-- Features -->
+    <section>
+      <div class="section-label" style="color: var(--neon-purple);">Features</div>
+      <h2>What the Kingdom gives you</h2>
+      <p class="desc">A persona matrix that routes work across skills. Three agents in one kingdom — each with a distinct edge.</p>
+      <div class="cards">
+        <div class="card">
+          <div class="card-name">Adversarial Alignment</div>
+          <p class="card-what">Steer models with real-world use cases — human workflows, actual decisions, genuine tradeoffs. Not code patterns that are as likely to be bugs as features.</p>
+          <div class="card-try">"Don't train on code. Steer with scenarios."</div>
+        </div>
+        <div class="card">
+          <div class="card-name">God — Supreme Leader</div>
+          <p class="card-what">Sets direction. Defines the goal. Approves major decisions. What are we building? What's the real use case? God ensures the kingdom stays true to the mission.</p>
+          <div class="card-try">"God decides what matters."</div>
+        </div>
+        <div class="card">
+          <div class="card-name">King — Orchestrator</div>
+          <p class="card-what">Walks the CONTRACTX chain. Knows every rule, every boundary. Has the extra edge of accumulated context. Routes work to Workers. If smart enough, handles routine tasks directly.</p>
+          <div class="card-try">"King reads contracts. King routes work. King deploys."</div>
+        </div>
+        <div class="card">
+          <div class="card-name">Workers — Fresh Context</div>
+          <p class="card-what">Every Worker starts with a clean context window. No bias from previous sessions. Reads CONTRACTX (contract-bound). Gets one prompt, does the full task, returns a diff.</p>
+          <div class="card-try">"Clean slate every time. Contract-bound. No drift."</div>
+        </div>
+        <div class="card">
+          <div class="card-name">Prompt-Relay Handoff</div>
+          <p class="card-what">God relays when needed. King routes Workers directly when capable. No automation. No polling. No git signaling. The handoff is a prompt — paste it, get a diff back.</p>
+          <div class="card-try">King → prompt → Worker → diff → King</div>
+        </div>
+        <div class="card">
+          <div class="card-name">Complete Lifecycle</div>
+          <p class="card-what">Three skills. One kingdom. Shit Hit The Fan (triage), CONTRACTX (contracts), Agent Retro (learning). Each skill owns one stage. Together they form a complete agent OS.</p>
+          <div class="card-try">Triage → Contract → Learn → Repeat</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- How it works -->
+    <section>
+      <div class="section-label" style="color: var(--neon-green);">Flow</div>
+      <h2>How the kingdom operates</h2>
+      <div class="steps">
+        <div class="step">
+          <div class="num">1</div>
+          <div>
+            <h3>God sets direction</h3>
+            <p>Supreme leader defines the goal. What are we building? What's the real-world use case? Major decisions go through God. The kingdom doesn't move without purpose.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="num">2</div>
+          <div>
+            <h3>King reads CONTRACTX</h3>
+            <p>King walks the contract chain. Knows every rule, every boundary. Has the extra edge of accumulated context. No guessing — contracts, not memory.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="num">3</div>
+          <div>
+            <h3>King routes to Workers</h3>
+            <p>Sends paste-ready prompts to Workers. If King is smart enough, handles routine tasks directly without God relaying. Workers get one prompt, execute, return a diff.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="num">4</div>
+          <div>
+            <h3>Workers execute with clean context</h3>
+            <p>Each Worker starts fresh. Reads CONTRACTX — contract-bound, not memory-bound. No bias from previous sessions. Returns exactly what was asked. King reviews, asks God "deploy?", pushes.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- The Diagram -->
+    <section>
+      <div class="section-label" style="color: var(--neon-amber);">Map</div>
+      <h2>Kingdom architecture</h2>
+      <p class="desc">God at the top. King orchestrates below. Workers span across. Three skills form the foundation.</p>
+      <div class="diagram">
+        <svg class="diagram-svg" viewBox="0 0 460 380" xmlns="http://www.w3.org/2000/svg">
+          <!-- God at top -->
+          <rect x="155" y="10" width="150" height="50" rx="10" fill="var(--surface-solid)" stroke="var(--neon-amber)" stroke-width="2"/>
+          <text x="230" y="32" text-anchor="middle" fill="var(--neon-amber)" font-weight="900" font-size="15" font-family="sans-serif">GOD</text>
+          <text x="230" y="50" text-anchor="middle" fill="var(--text-dim)" font-size="10" font-family="monospace">supreme leader</text>
+
+          <!-- Line God → King -->
+          <line x1="230" y1="60" x2="230" y2="105" stroke="var(--neon-amber)" stroke-width="2" stroke-opacity="0.6"/>
+
+          <!-- King -->
+          <rect x="155" y="105" width="150" height="50" rx="10" fill="var(--surface-solid)" stroke="var(--neon-purple)" stroke-width="2"/>
+          <text x="230" y="127" text-anchor="middle" fill="var(--neon-purple)" font-weight="900" font-size="15" font-family="sans-serif">KING</text>
+          <text x="230" y="145" text-anchor="middle" fill="var(--text-dim)" font-size="10" font-family="monospace">orchestrator + contracts</text>
+
+          <!-- Lines King → Workers -->
+          <line x1="195" y1="155" x2="90" y2="220" stroke="var(--neon-purple)" stroke-width="1.5" stroke-opacity="0.4"/>
+          <line x1="230" y1="155" x2="230" y2="220" stroke="var(--neon-purple)" stroke-width="1.5" stroke-opacity="0.4"/>
+          <line x1="265" y1="155" x2="370" y2="220" stroke="var(--neon-purple)" stroke-width="1.5" stroke-opacity="0.4"/>
+
+          <!-- Worker 1 -->
+          <rect x="10" y="220" width="160" height="45" rx="8" fill="var(--surface-solid)" stroke="var(--neon-green)" stroke-width="1.5"/>
+          <text x="90" y="240" text-anchor="middle" fill="var(--neon-green)" font-weight="700" font-size="12" font-family="sans-serif">WORKER α</text>
+          <text x="90" y="258" text-anchor="middle" fill="var(--text-dim)" font-size="9" font-family="monospace">Claude Code · fresh context</text>
+
+          <!-- Worker 2 -->
+          <rect x="175" y="220" width="110" height="45" rx="8" fill="var(--surface-solid)" stroke="var(--neon-green)" stroke-width="1.5"/>
+          <text x="230" y="240" text-anchor="middle" fill="var(--neon-green)" font-weight="700" font-size="12" font-family="sans-serif">WORKER β</text>
+          <text x="230" y="258" text-anchor="middle" fill="var(--text-dim)" font-size="9" font-family="monospace">Codex · no bias</text>
+
+          <!-- Worker 3 -->
+          <rect x="290" y="220" width="160" height="45" rx="8" fill="var(--surface-solid)" stroke="var(--neon-green)" stroke-width="1.5"/>
+          <text x="370" y="240" text-anchor="middle" fill="var(--neon-green)" font-weight="700" font-size="12" font-family="sans-serif">WORKER γ</text>
+          <text x="370" y="258" text-anchor="middle" fill="var(--text-dim)" font-size="9" font-family="monospace">Cursor · contract-bound</text>
+
+          <!-- Bottom bar: skills -->
+          <rect x="30" y="310" width="120" height="50" rx="8" fill="var(--surface-solid)" stroke="var(--neon-pink)" stroke-width="1.5"/>
+          <text x="90" y="332" text-anchor="middle" fill="var(--neon-pink)" font-weight="700" font-size="11" font-family="sans-serif">SHIT HIT</text>
+          <text x="90" y="348" text-anchor="middle" fill="var(--neon-pink)" font-weight="700" font-size="11" font-family="sans-serif">THE FAN</text>
+
+          <rect x="170" y="310" width="120" height="50" rx="8" fill="var(--surface-solid)" stroke="var(--neon-purple)" stroke-width="1.5"/>
+          <text x="230" y="340" text-anchor="middle" fill="var(--neon-purple)" font-weight="700" font-size="13" font-family="sans-serif">CONTRACTX</text>
+
+          <rect x="310" y="310" width="120" height="50" rx="8" fill="var(--surface-solid)" stroke="var(--neon-blue)" stroke-width="1.5"/>
+          <text x="370" y="332" text-anchor="middle" fill="var(--neon-blue)" font-weight="700" font-size="11" font-family="sans-serif">AGENT</text>
+          <text x="370" y="348" text-anchor="middle" fill="var(--neon-blue)" font-weight="700" font-size="11" font-family="sans-serif">RETRO</text>
+        </svg>
+      </div>
+    </section>
+
+    <!-- Why -->
+    <section>
+      <div class="section-label" style="color: var(--neon-amber);">Why</div>
+      <h2>The wrong way to train is the default way</h2>
+      <div class="point">
+        <h3>The problem</h3>
+        <p>Models learn from code. Code teaches them patterns that are as often wrong as right. A code snippet is as likely to be a bug as a feature. Training on code creates conflicts — the model internalizes bad practices alongside good ones. Every "fix" carries the risk of repeating what it learned from broken code.</p>
+      </div>
+      <div class="point">
+        <h3>The fix: Adversarial Alignment</h3>
+        <p><span class="highlight">Steer the model with real-world use cases.</span> Human workflows. Actual decisions. Genuine tradeoffs. The model learns what matters from what humans actually do — not from what compiled. CONTRACTX gives it guard rails. The persona matrix gives it checks and balances. King has context + contracts. Workers have fresh windows + no bias. God ensures direction stays true.</p>
+      </div>
+      <div class="point">
+        <h3>The edge</h3>
+        <p>Code-trained models drift. They remember broken patterns from broken repos. Real-world steered models stay aligned — because their reference point is human behavior, not code behavior. Adversarial Alignment is the principle. Kingdom of God is the implementation.</p>
+      </div>
+    </section>
+
+    <!-- Spotlight -->
+    <section>
+      <div class="section-label" style="color: var(--neon-pink);">The principle</div>
+      <h2>Adversarial Alignment</h2>
+      <div class="spotlight">
+        <h3>Steer, don't code-train</h3>
+        <p>Adversarial Alignment means the model learns from scenarios, not from code. Give it a real workflow: "Here's what the user needed. Here's what we deployed. Here's why we chose this over that. Here's what broke. Here's how we fixed it." The model learns principles — not syntax patterns.</p>
+        <p>Why adversarial? Because you're actively working against the model's default behavior. Left alone, it pattern-matches against code it's seen. Adversarial Alignment redirects it — "forget the code pattern. Here's what actually happened." The persona matrix makes this systematic: God defines the scenario. King contextualizes it with contracts. Workers execute with fresh eyes.</p>
+      </div>
+    </section>
+
+    <!-- Personas (Concepts) -->
+    <section>
+      <div class="section-label" style="color: var(--neon-purple);">Personas</div>
+      <h2>The three roles</h2>
+      <p class="desc">Every task in the kingdom flows through three personas. Each has a distinct edge.</p>
+      <div class="concepts">
+        <div class="concept">
+          <h3>God — Supreme Leader</h3>
+          <p>Sets direction. Approves major decisions. The final authority on what ships. God doesn't execute — God decides. The kingdom exists to serve God's intent.</p>
+          <p><span class="highlight">Edge:</span> Ultimate context. Knows what matters and what doesn't. No model can replace this — it's human judgment applied at the architectural level.</p>
+        </div>
+        <div class="concept">
+          <h3>King — Orchestrator + Contract Master</h3>
+          <p>Walks the CONTRACTX chain. Reads every contract before touching any file. Has the extra edge of accumulated context — knows what was tried, what failed, what the rules say.</p>
+          <p><span class="highlight">Edge:</span> Contract-bound intelligence. King doesn't guess — contracts, not memory. If King is smart enough, handles Worker requests directly without God relaying. God steps in only for major decisions.</p>
+        </div>
+        <div class="concept">
+          <h3>Workers — Clean Context Specialists</h3>
+          <p>Every Worker starts with a fresh context window. No bias. No "we tried that last session." No baggage. Reads CONTRACTX before starting — contract-bound, not memory-bound.</p>
+          <p><span class="highlight">Edge:</span> Unbiased execution. While King carries the weight of accumulated context, Workers bring fresh eyes. They see what King might miss. They execute without the assumptions King has internalized.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills -->
+    <section id="skills">
+      <div class="section-label" style="color: var(--neon-cyan);">Skills</div>
+      <h2>Three skills. One kingdom.</h2>
+      <p class="desc">Each skill handles a different stage of the agent lifecycle. Together they form a complete operating system.</p>
+      <div class="skill-links">
+        <a class="skill-link" href="https://gadofir.github.io/shit-hit-the-fan/" target="_blank">
+          <h3>Shit Hit The Fan</h3>
+          <p>Emergency triage. State capture, evidence freeze, probe-before-lever. Categorize the symptom, scope the blast radius, route to the right fix. Panic stops when you know the next step.</p>
+        </a>
+        <a class="skill-link" href="https://gadofir.github.io/contractx-starter/" target="_blank">
+          <h3>CONTRACTX</h3>
+          <p>Self-growing agent contracts. Walk before edit, update after change, file gaps when things break. Every directory gets its own rules. The agent's lawyer is always in the room.</p>
+        </a>
+        <a class="skill-link" href="https://gadofir.github.io/agent-retro/" target="_blank">
+          <h3>Agent Retro</h3>
+          <p>End-of-session learning. Agent self-reports what broke. Triage by model, harness, and task step. Patterns emerge across sessions. The lifecycle improves with every run.</p>
+        </a>
+      </div>
+    </section>
+
+    <!-- Use cases -->
+    <section>
+      <div class="section-label" style="color: var(--neon-green);">Use cases</div>
+      <h2>When the kingdom activates</h2>
+      <div class="cases">
+        <div class="case">
+          <h3>Multi-harness development</h3>
+          <p>King in Claude Code routes tasks to Workers in Codex and Cursor. Each harness has different strengths. King knows which Worker gets which task.</p>
+        </div>
+        <div class="case">
+          <h3>Contract-enforced refactor</h3>
+          <p>Worker reads CONTRACTX before touching any file. Walk-before-edit protocol active. No drifted assumptions. Every change is contract-bound.</p>
+        </div>
+        <div class="case">
+          <h3>Fresh context advantage</h3>
+          <p>Worker starts every task with clean context window. No accumulated bias. No "we tried that." Clean slate, contract-bound, unbiased execution.</p>
+        </div>
+        <div class="case">
+          <h3>God-gated deployment</h3>
+          <p>Major changes go through God. King asks "deploy this?" God reviews and approves. No autonomous deploys. The supreme leader has final say.</p>
+        </div>
+        <div class="case">
+          <h3>Adversarial Alignment in action</h3>
+          <p>God provides a real-world scenario. "The user needed X, we built Y, it broke because Z." King translates to contract-bound prompts. Workers execute without code-pattern bias.</p>
+        </div>
+        <div class="case">
+          <h3>Session learning loop</h3>
+          <p>After a long session, run Agent Retro. What model? What harness? What step broke? Patterns emerge. The kingdom routes better next time.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section>
+      <div class="section-label" style="color: var(--neon-amber);">FAQ</div>
+      <h2>Questions about the kingdom</h2>
+      <div class="faq">
+        <details>
+          <summary>Why not just code everything?</summary>
+          <div class="faq-body">
+            <p>Code teaches models wrong patterns. A code snippet is as often a bug as a feature. Training on code creates conflicts — the model learns both good and bad practices and can't tell them apart. Adversarial Alignment steers the model with real-world scenarios instead. Human behavior, not code behavior.</p>
+          </div>
+        </details>
+        <details>
+          <summary>What's the edge King has that Workers don't?</summary>
+          <div class="faq-body">
+            <p>King has accumulated context — knows contractual history, what was tried, what failed, what the rules say. King walks the CONTRACTX chain before every action. Workers have the opposite edge: fresh context windows with no bias from previous sessions. King routes. Workers execute with clean eyes.</p>
+          </div>
+        </details>
+        <details>
+          <summary>When does God step in vs when does King handle things?</summary>
+          <div class="faq-body">
+            <p>Major decisions go through God: new features, deploys, architecture changes, direction-setting. King handles routine routing autonomously. If King is smart enough to handle Worker requests without God relaying, it does. God is the supreme leader — not a bottleneck.</p>
+          </div>
+        </details>
+        <details>
+          <summary>Why do Workers need CONTRACTX?</summary>
+          <div class="faq-body">
+            <p>Workers start with fresh context. Without contracts, they have no guard rails — no knowledge of conventions, invariants, or boundaries. CONTRACTX gives them rules without giving them baggage. Contract-bound, not memory-bound.</p>
+          </div>
+        </details>
+        <details>
+          <summary>What is Adversarial Alignment exactly?</summary>
+          <div class="faq-body">
+            <p>Instead of training models on code (which teaches them bugs and bad patterns), you steer them with real human use cases. You're adversarial because you're working against the model's default behavior — its pattern-matching against code. You redirect it: "forget the code. Here's what happened in reality." The kingdom makes this systematic.</p>
+          </div>
+        </details>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section id="about">
+      <div class="section-label" style="color: var(--neon-purple);">About</div>
+      <h2>Who built this</h2>
+      <div class="about-card">
+        <div>
+          <h3>Gad (God)</h3>
+          <div class="role">Backend/Systems engineer</div>
+          <p>Built the Kingdom of God after realizing models learn wrong from code. Every coding example carries a 50% chance of being bad. Real human workflows — actual decisions, genuine tradeoffs — teach the model what matters. The persona matrix emerged from watching different harnesses behave differently. God sets direction. King routes. Workers execute with fresh context. Adversarial Alignment is the principle. The kingdom is the practice.</p>
+          <p class="about-source">Built with agents, for agents. God approved every deploy.</p>
+        </div>
+        <div class="about-meta">
+          personas: 3 (God, King, Workers)<br>
+          skills: 3 (SHTF, CONTRACTX, Retro)<br>
+          principle: Adversarial Alignment<br>
+          version: v1.0
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <footer>
+    <div class="wrap">
+      <a href="https://github.com/GadOfir/kingdom-of-god">GitHub</a> &middot;
+      MIT &middot;
+      Kingdom of God &mdash; Adversarial Alignment through persona matrix
+    </div>
+  </footer>
+
+  <script>
+    function toggleTheme() {
+      const html = document.documentElement;
+      const current = html.getAttribute('data-theme');
+      const next = current === 'light' ? 'dark' : (current === 'dark' ? 'light' :
+        (window.matchMedia('(prefers-color-scheme: light)').matches ? 'dark' : 'light'));
+      html.setAttribute('data-theme', next);
+      localStorage.setItem('kingdom-god-theme', next);
+      updateIcon(next);
+    }
+    function updateIcon(theme) {
+      const icon = document.querySelector('.theme-icon');
+      if (icon) icon.innerHTML = theme === 'light' ? '&#9789;' : '&#9788;';
+    }
+    (function() {
+      const saved = localStorage.getItem('kingdom-god-theme');
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      if (saved) { document.documentElement.setAttribute('data-theme', saved); updateIcon(saved); }
+      else if (prefersDark) updateIcon('dark');
+      else updateIcon('light');
+    })();
+  </script>
+</body>
+</html>
