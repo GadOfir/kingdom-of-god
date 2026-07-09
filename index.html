@@ -483,7 +483,7 @@
       <div class="section-label" style="color: var(--neon-amber);">Architecture</div>
       <h2>Kingdom map</h2>
       <div class="diagram">
-        <svg class="diagram-svg" viewBox="0 0 640 520" xmlns="http://www.w3.org/2000/svg" style="max-width: 600px;">
+        <svg class="diagram-svg" viewBox="0 0 640 660" xmlns="http://www.w3.org/2000/svg" style="max-width: 600px;">
           <!-- God -->
           <a href="https://gadofir.github.io/kingdom-of-god/" target="_blank" class="node">
             <rect x="255" y="18" width="130" height="44" rx="12" fill="var(--surface-solid)" stroke="var(--neon-amber)" stroke-width="2.5"/>
@@ -564,6 +564,34 @@
           <path d="M320,298 V448" fill="none" stroke="var(--neon-purple)" stroke-width="1.5" stroke-opacity="0.7"/>
           <path d="M360,298 Q420,420 495,448" fill="none" stroke="var(--neon-purple)" stroke-width="1.5" stroke-opacity="0.7"/>
           <text x="330" y="360" fill="var(--neon-purple)" font-size="8" font-family="monospace">routes</text>
+
+          <!-- ============ Plug-in skills · examples wired under the workers ============ -->
+          <path d="M145,498 V540" fill="none" stroke="var(--text-dim)" stroke-width="1" stroke-opacity="0.45" stroke-dasharray="3,3"/>
+          <path d="M320,498 V540" fill="none" stroke="var(--text-dim)" stroke-width="1" stroke-opacity="0.45" stroke-dasharray="3,3"/>
+          <path d="M495,498 V540" fill="none" stroke="var(--text-dim)" stroke-width="1" stroke-opacity="0.45" stroke-dasharray="3,3"/>
+          <line x1="60" y1="540" x2="580" y2="540" stroke="var(--text-dim)" stroke-width="1" stroke-opacity="0.4" stroke-dasharray="3,3"/>
+          <text x="60" y="531" fill="var(--text-dim)" font-size="8.5" font-weight="700" font-family="monospace" letter-spacing="1">PLUG-IN SKILLS · linked (always latest) · workers run them, not the King</text>
+
+          <!-- rail -> plug-in box stubs -->
+          <path d="M175,540 V566" fill="none" stroke="var(--text-dim)" stroke-width="1" stroke-opacity="0.45" stroke-dasharray="3,3"/>
+          <path d="M455,540 V566" fill="none" stroke="var(--text-dim)" stroke-width="1" stroke-opacity="0.45" stroke-dasharray="3,3"/>
+
+          <!-- example external skill -->
+          <a href="https://github.com/mattpocock/skills/tree/main/skills/engineering/improve-codebase-architecture" target="_blank" class="node">
+            <rect x="70" y="566" width="210" height="66" rx="10" fill="var(--surface-solid)" stroke="var(--neon-cyan)" stroke-width="1.8"/>
+            <text x="175" y="590" text-anchor="middle" fill="var(--neon-cyan)" font-weight="700" font-size="11" font-family="sans-serif">improve-codebase-</text>
+            <text x="175" y="605" text-anchor="middle" fill="var(--neon-cyan)" font-weight="700" font-size="11" font-family="sans-serif">architecture</text>
+            <text x="175" y="622" text-anchor="middle" fill="var(--text-dim)" font-size="7.5" font-family="monospace">ext · mattpocock/skills</text>
+          </a>
+          <!-- "+" add-any-skill placeholder -->
+          <rect x="360" y="566" width="190" height="66" rx="10" fill="none" stroke="var(--text-dim)" stroke-width="1.6" stroke-dasharray="6,5"/>
+          <text x="455" y="598" text-anchor="middle" fill="var(--text-mid)" font-weight="800" font-size="22" font-family="sans-serif">+</text>
+          <text x="455" y="618" text-anchor="middle" fill="var(--text-dim)" font-size="8" font-family="monospace">add any skill · link an upper skill</text>
+
+          <!-- advisory wiring: improve-codebase-architecture -> Agent Retro (hugs right edge, clear of workers) -->
+          <path d="M280,600 C 520,626 618,470 618,300 Q618,293 610,293" fill="none" stroke="var(--neon-cyan)" stroke-width="1.4" stroke-opacity="0.65" stroke-dasharray="5,4"/>
+          <text x="500" y="440" fill="var(--neon-cyan)" font-size="8" font-family="monospace">used in retro:</text>
+          <text x="500" y="450" fill="var(--neon-cyan)" font-size="8" font-family="monospace">is the arch good?</text>
         </svg>
       </div>
     </section>
