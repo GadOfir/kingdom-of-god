@@ -13,13 +13,23 @@ not code. God rules. King orchestrates. Workers execute with fresh context.
 
 ## The skills
 
+Each one runs standalone. Install one, some, or all — the wiring between them is
+advisory ("use it if you have it"), never required.
+
 | Skill | Stage | URL |
 |---|---|---|
 | GodsPlan | Planning | https://gadofir.github.io/godsplan/ |
-| Shit Hit The Fan | Triage | https://gadofir.github.io/shit-hit-the-fan/ |
+| Shit Hit The Fan | Triage (user-invoked) | https://gadofir.github.io/shit-hit-the-fan/ |
 | CONTRACTX | Contracts | https://gadofir.github.io/contractx-starter/ |
 | Agent Retro | Learning | https://gadofir.github.io/agent-retro/ |
+| TechDebt | Drift | https://gadofir.github.io/techdebt/ |
 | LOS | Memory (optional) | https://gadofir.github.io/LOS-starter/ |
+
+## Standalone-first
+
+The skills are designed to work alone and compose when you want them to. A pairing
+like "route drift findings to a fix plan" only fires if both skills are installed;
+otherwise each falls back to its own inputs. Nothing here is a hard dependency.
 
 ## Plug-in skills
 
